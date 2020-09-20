@@ -1,0 +1,18 @@
+Problems with the project:
+- PHP restriction in order to log in function's operation.
+- Manipulating data at database using preparedstatement (eliminating sql injection)
+- CSS or PHP graphical graphs.
+- HTML5 for validation
+- CSS version for both desktop and phone
+
+27/07/2020
+ Done:
+ - Setting up environment for php development.
+ - Database connection with mariaDB through mysqli.
+ 
+ Future:
+ - MVC with PHP.
+ - Secured folder where the customer could not access to (php and html file).
+ - Functions and dashboard of the website.
+
+25/08/2020
