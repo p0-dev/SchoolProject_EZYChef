@@ -1,3 +1,2 @@
-For testing amend function of git!
-Now testing merge with master branch
+
 
