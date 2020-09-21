@@ -1,28 +1,15 @@
+<!--This controller is used for different log in and user's data validation-->
+
 <?php
-
-  #Definition: loginController is responsible for different functions related to user's log in, authentication and will be re-directed from login page.
-
-  echo 'inside login controller';
-
-  class loginController #extends MainController
-  {
-
-    #CONSTRUCTOR
-    function __construct()
-    {
-      echo "this is login controller";
-      echo $_POST['txtUsername'];
-      echo $_POST['txtPassword'];
-    }
-
-    #VALIDATION USER'S LOGIN
-    #Input: username and password from POST session
-    #Output: dashboard page (valid) or error page (in-valid)
-    public function validation()
-    {
+  echo 'loginControler';
+  class loginController{
+    //Function name: validation
+    //Purposes: validating data from log in form - checking database for user
+    //Input: username and password from global variable POST
+    //Output: redirect to dashboard controller --> dashboard page
+    public function validation(){
       echo "validation function";
     }
-
   }
 
  ?>

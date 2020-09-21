@@ -1,16 +1,19 @@
+<!--This is the router for the MVC model.
+Every urls from address bar will have to go through this router and will be routed to final destination based on programming.-->
+<!--Further improvements
+  1. Creating a ini or data file to store different constants.
+-->
+
 <?php
-  #Definition: The router file is responsible for re-routing to different controllers based on received url.
-
-  #Future 1: putting configurations inside a common config file --> load the file --> easier to fix in the future
-
   #CONSTANT AND VARIABLES
   define("CTRL", "Controller");
+  define("PATH", "./controllers/")
 
   #ANALYZING RECEIVED URL
   $url = $_GET['url'];
   $url = explode("/", $url);
   $controllerName = $url[0].CTRL;
-  $controllerFile = $url[0].CTRL.'.php';
+  $controllerFile = PATH.$url[0].CTRL.'.php';
 
   #CHECKING EXISTED CONTROLLER FILE
   if(file_exists($controllerFile))
