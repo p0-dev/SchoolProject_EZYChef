@@ -19,3 +19,7 @@
 
 4. PROJECT DELIVERY DATE
  - 26/10/2020: Ending of the project
+
+5. PROJECT TEST
+ - Test function of the website.
+ - Test security of the website.

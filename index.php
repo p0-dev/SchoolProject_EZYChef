@@ -41,7 +41,6 @@ If not, proceeding to log in function-->
     <footer>This is footer</footer>
 
     <!--Test-->
-    <?php include test.php; ?>
 
   </body>
 </html>

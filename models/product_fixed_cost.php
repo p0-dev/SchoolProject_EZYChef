@@ -1,4 +1,9 @@
 <?php
+  //checking direct access from users
+  if(!defined('AccessAllowance')){
+    exit('Something went wrong! Life sucks, hah!');
+  }
+
   class product_fixed_cost{
     private $product_fixed_cost_id;
     private $product_id;

@@ -1,17 +1,17 @@
+<!--Main controller: used to implement common functions for all other controllers from programmers (such as view function and render function)-->
+<!--All controllers need to be child of this mainController-->
+<!--Further improvements:
+-->
+
 <?php
-  #This is the main controller.
-  #Other controllers have to extends from this controller.
-  #This will help to set several settings for all controllers at the same time.
-
-  require_once 'viewController.php';
-
-  class MainController
-  {
-    function __construct()
-    {
-      echo "This is main controller";
-      $this->view = new viewController;
-    }
+  //checking direct access from users
+  if(!defined('AccessAllowance')){
+    exit('Something went wrong! Life sucks, hah!');
   }
 
+  class mainController{
+    function __construct(){
+      echo 'Test mainController constructor';
+    }
+  }
  ?>
