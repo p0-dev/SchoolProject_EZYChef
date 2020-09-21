@@ -1,4 +1,9 @@
 <?php
+  //checking direct access from users
+  if(!defined('AccessAllowance')){
+    exit('Something went wrong! Life sucks, hah!');
+  }
+
   class order_batch{
     private $customer_order_batch_id;
     private $customer_order_id;

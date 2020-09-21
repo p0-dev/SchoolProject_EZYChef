@@ -1,7 +1,11 @@
 <!--This controller is used for different log in and user's data validation-->
 
 <?php
-  echo 'loginControler';
+  //checking direct access from users
+  if(!defined('AccessAllowance')){
+    exit('Something went wrong! Life sucks, hah!');
+  }
+  
   class loginController{
     //Function name: validation
     //Purposes: validating data from log in form - checking database for user
@@ -11,5 +15,4 @@
       echo "validation function";
     }
   }
-
  ?>

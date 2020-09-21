@@ -1,4 +1,9 @@
 <?php
+  //checking direct access from users
+  if(!defined('AccessAllowance')){
+    exit('Something went wrong! Life sucks, hah!');
+  }
+
   class customer_contact{
     private $customer_contact_id;
     private $customer_id;

@@ -1,4 +1,9 @@
 <?php
+  //checking direct access from users
+  if(!defined('AccessAllowance')){
+    exit('Something went wrong! Life sucks, hah!');
+  }
+
   class order_material_detail{
     private $order_detail_product_raw_material_id;
     private $customer_order_detail_id;

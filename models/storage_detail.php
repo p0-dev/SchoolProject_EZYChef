@@ -1,4 +1,9 @@
 <?php
+  //checking direct access from users
+  if(!defined('AccessAllowance')){
+    exit('Something went wrong! Life sucks, hah!');
+  }
+
   class storage_detail{
     private $raw_material_storage_detail_id;
     private $raw_material_batch_id;
