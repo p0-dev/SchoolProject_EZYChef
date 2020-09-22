@@ -6,13 +6,15 @@
     exit('Something went wrong! Life sucks, hah!');
   }
 
-  class loginController{
+  class loginController extends mainController{
     //Function name: validation
     //Purposes: validating data from log in form - checking database for user
     //Input: username and password from global variable POST
     //Output: redirect to dashboard controller --> dashboard page
     public function validation(){
-      echo "validation function";
+      //validation fail --> throw that motherfucker out of here
+      //validation successfully
+      $this->view->render('dashboard.php');
     }
   }
  ?>

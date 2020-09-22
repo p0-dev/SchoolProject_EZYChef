@@ -2,7 +2,8 @@
 Every urls from address bar will have to go through this router and will be routed to final destination based on programming.-->
 <!--Further improvements
   1. Creating a ini or data file to store different constants.
-  2. Checking algorithm for more stable version
+  2. Checking algorithm for more stable version.
+  3. Loading or defining model's direction for loading.
 -->
 
 <?php
@@ -11,6 +12,9 @@ Every urls from address bar will have to go through this router and will be rout
   define("PATH", "../controllers/");
   //preventing direct access from users
   define("AccessAllowance", true);
+
+  //loading libs and controllers
+  require_once 'mainController.php';
 
   //getting url --> getting controller name and function
   $url = $_GET['url'];

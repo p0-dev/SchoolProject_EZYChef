@@ -1,3 +1,4 @@
+<!---->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -5,6 +6,8 @@
     <title></title>
   </head>
   <body>
-    <p>Page or Controller is not found!</p><br>
+    <h1>This is the dashboard</h1>
   </body>
 </html>
+
+<?php echo 'Yeah, this is the fucking dashboard'; ?>
