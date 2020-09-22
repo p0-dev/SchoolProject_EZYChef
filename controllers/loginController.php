@@ -5,7 +5,7 @@
   if(!defined('AccessAllowance')){
     exit('Something went wrong! Life sucks, hah!');
   }
-  
+
   class loginController{
     //Function name: validation
     //Purposes: validating data from log in form - checking database for user
