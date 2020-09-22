@@ -1,11 +1,15 @@
 Problems with the project:
+Important:
+- Designing a way to import data from Ezychef automatically from MYOB excel file.
+- Design database as two separate databases: one is for display information, another is for additional functions.
+Optional:
 - CSS or PHP graphical graphs.
 - HTML5 for validation
 - CSS version for both desktop and phone
 
 27/07/2020
  Done:
- - Setting up environment for php development.
+ - Setting up environment for PHP development.
  - Database connection with mariaDB through mysqli.
 
  Future:
@@ -25,3 +29,14 @@ Future:
  - Illustration with CSS and Javascript.
  - Validation through HTML5 and Javascript.
  - Testing views as multiple folder or just one big ass giant folder.
+
+ 23/09/2020
+ Done:
+ - Implementing view (rendering) a PHP page from controllers.
+
+ Future:
+ - Design previous database into two separate databases --> Redesign model (try to avoid change model as much as possible).
+ - Implement log in function and basic dashboard function (focus on displaying business's operation information first).
+  + Validation of log in information (HTML5 and Javascript).
+  + Graphical graphs from CSS and Javascripts.
+ - Implement checking user's session for security.
