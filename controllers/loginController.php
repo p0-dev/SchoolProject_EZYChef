@@ -12,8 +12,9 @@
     //Input: username and password from global variable POST
     //Output: redirect to dashboard controller --> dashboard page
     public function validation(){
-      //validation fail --> throw that motherfucker out of here
+      //validation fail --> throw that motherfucker out of here to the log in page
       //validation successfully
+      //setting users session
       $this->view->render('dashboard.php');
     }
   }

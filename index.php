@@ -2,8 +2,14 @@
 <!--Checking local session for user's session
 If already logged in -> dashboard page
 If not, proceeding to log in function-->
+<!--Further improvements:
+  1. Using hash 512 for more security -> Using hash on database
+-->
 
 <?php
+  //test
+  //echo hash('sha256', 'fuck');
+
   //Checking local session for already logged in user
  ?>
 
@@ -13,7 +19,7 @@ If not, proceeding to log in function-->
   <!--Header-->
   <head>
     <meta charset="utf-8">
-    <title>Ezychef</title>
+    <title>Ezychef log in</title>
   </head>
 
   <!--Body-->
@@ -31,9 +37,10 @@ If not, proceeding to log in function-->
     -->
     <form class="" action="login/validation/" method="POST">
       <label for="txtUsername">Username:</label><br>
-      <input type="text" id="txtUsername" name="txtUsername" value="" required><br>
+      <input type="text" id="txtUsername" name="txtUsername" value="" required><br><br>
       <label for="txtPassword">Password:</label><br>
       <input type="password" id="txtPassword" name="txtPassword" value="" required><br><br>
+      <p hidden id="msgLogInError">Wrong password or username!</p>
       <input type="submit" value="Log in">
     </form><br><hr>
 
