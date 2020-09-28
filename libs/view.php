@@ -37,7 +37,7 @@
     public function redirect($page, $function){
       if(null != $page){
         if(null == $function){
-          if('index.php' == $page){
+          if(false !== strpos($page, 'index.php')){
             //redirect to index.php
             header('Location: /'.$page);
             exit();

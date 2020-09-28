@@ -22,17 +22,13 @@
       $validation = $this->database->userValidation($username, $password);
       $this->database->close();
 
-
       //redirect users to corresponding destinations
       if($validation){
-        //setting user session
         //go to dashboard
         $this->view->redirect('dashboard', 'view');
       }else{
-        //set get global var for display error message
-        $_GET['loginError'] = true;
         //go to index.php
-        $this->view->redirect('index.php', null);
+        $this->view->redirect('index.php?loginError=1', null);
       }
     }
   }

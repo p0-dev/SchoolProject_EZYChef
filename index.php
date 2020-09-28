@@ -3,17 +3,18 @@
 If already logged in -> dashboard page
 If not, proceeding to log in function-->
 <!--Further improvements:
-  1. Using hash 512 for more security -> Using hash on database
 -->
 
 <?php
-  //test
-  //echo hash('sha256', '123456');
-
+  session_start();
   //Checking local session for already logged in user
+  $username = $_SESSION['USER'];
+  $permission = $_SESSION['PERMISSION'];
+  if(null != $username && null != $permission){
+    header('Location: /dashboard/view');
+  }
  ?>
 
-<!--Log in function form-->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <!--Header-->

@@ -5,6 +5,9 @@
 -->
 
 <?php
+  //enable of using session
+  session_start();
+
   //checking direct access from users
   if(!defined('AccessAllowance')){
     exit('Something went wrong! Life sucks, hah!');
@@ -35,13 +38,21 @@
     public function userValidation($username, $password){
       if(null != $this->mysqli){
         $st = $this->mysqli->prepare('select * from system_administration where username = ? and password = ?');
+        if(false == $st){echo 'PreparedStatement fail!';}
         $st->bind_param('ss', $user, $pass);
+        if(false == $st){
+          echo 'BindingParam fail!';
+        }
         $user = $username;
         $pass = $password;
         $st->execute();
+        if(false == $st){echo 'Executing fail!';}
         $result = $st->get_result();
         if(1 == $result->num_rows){
-          //set session
+          //setting session
+          $row = $result->fetch_assoc();
+          $_SESSION['USER'] = $row['username'];
+          $_SESSION['PERMISSION'] = $row['permission'];
           return true;
         }else{
           return false;
@@ -52,5 +63,7 @@
         return false;
       }
     }
+    /**/
+
   }
  ?>
