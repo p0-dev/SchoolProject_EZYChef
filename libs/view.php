@@ -26,5 +26,9 @@
         require_once VIEWS.$page;
       }
     }
+    /**/
+    public function redirect($page){
+      header('Location: '.$page);
+    }
   }
 ?>
