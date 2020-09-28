@@ -36,7 +36,7 @@ If not, proceeding to log in function-->
       3. Aligning all elements inside the form (does not have to be nice, but it could be professional)
       4. Using Css for decoration (optional)
     -->
-    <form class="" action="login/validation/" method="POST">
+    <form class="" action="/login/validation/" method="POST">
       <label for="txtUsername">Username:</label><br>
       <input type="text" id="txtUsername" name="txtUsername" value="" required maxlength="100"><br><br>
       <label for="txtPassword">Password:</label><br>

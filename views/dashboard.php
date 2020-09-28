@@ -7,6 +7,9 @@
   </head>
   <body>
     <h1>This is the dashboard</h1>
+    <form class="" action="/test/motherfucker" method="post">
+      <input type="submit" name="Fuck" value="fuck">
+    </form>
   </body>
 </html>
 
