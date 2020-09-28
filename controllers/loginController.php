@@ -12,10 +12,24 @@
     //Input: username and password from global variable POST
     //Output: redirect to dashboard controller --> dashboard page
     public function validation(){
-      //validation fail --> throw that motherfucker out of here to the log in page
-      //validation successfully
-      //setting users session
-      $this->view->render('dashboard.php');
+      $username = $_POST['txtUsername'];
+      $password = $_POST['txtPassword'];
+      $password = hash('sha256', $password);
+
+      $this->database->connect();
+      $validation = $this->database->userValidation($username, $password);
+      $this->database->close();
+
+      if($validation){
+        //setting user session
+        //go to dashboard
+        $this->view->render('dashboard.php');
+      }else{
+        //set get global var for display error message
+        $_GET['loginError'] = true;
+        //go to index.php
+        $this->view->render('index.php');
+      }
     }
   }
  ?>

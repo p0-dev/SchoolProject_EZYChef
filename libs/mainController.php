@@ -17,7 +17,9 @@
   class mainController{
     function __construct(){
       require_once 'view.php';
+      require_once 'database_connection.php';
       $this->view = new view();
+      $this->database = new databaseConnection();
     }
   }
  ?>

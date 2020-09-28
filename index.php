@@ -8,7 +8,7 @@ If not, proceeding to log in function-->
 
 <?php
   //test
-  //echo hash('sha256', 'fuck');
+  //echo hash('sha256', '123456');
 
   //Checking local session for already logged in user
  ?>
@@ -20,6 +20,7 @@ If not, proceeding to log in function-->
   <head>
     <meta charset="utf-8">
     <title>Ezychef log in</title>
+    <script type="text/javascript" src="views/scripts/index.js"></script>
   </head>
 
   <!--Body-->
@@ -37,7 +38,7 @@ If not, proceeding to log in function-->
     -->
     <form class="" action="login/validation/" method="POST">
       <label for="txtUsername">Username:</label><br>
-      <input type="text" id="txtUsername" name="txtUsername" value="" required><br><br>
+      <input type="text" id="txtUsername" name="txtUsername" value="" required maxlength="100"><br><br>
       <label for="txtPassword">Password:</label><br>
       <input type="password" id="txtPassword" name="txtPassword" value="" required><br><br>
       <p hidden id="msgLogInError">Wrong password or username!</p>

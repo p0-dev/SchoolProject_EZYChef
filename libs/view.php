@@ -11,6 +11,7 @@
 
   //direction to pages
   define("VIEWS", '../views/');
+  define('INDEX', '../');
 
   class view{
     /*
@@ -19,7 +20,11 @@
     Output: require_once that page
     */
     public function render($page){
-      require_once VIEWS.$page;
+      if('index.php' == $page){
+        require_once INDEX.$page;
+      }else{
+        require_once VIEWS.$page;
+      }
     }
   }
 ?>
