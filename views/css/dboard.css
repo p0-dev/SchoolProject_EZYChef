@@ -1,104 +1,120 @@
-* {
+*{
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-.header{
+/*HEADER*/
+div.header{
+  background-color: white;
   text-align: center;
-  background-color: #B0E0E6;
-  margin: 0;
-  padding: 0;
+  padding: 10px;
+  margin: 10px;
 }
-.navi{
+
+/*NAVIGATION BAR*/
+div.navi{
   position: sticky;
   position: -webkit-sticky;
-  width: 100%;
-  height: 50px;
-  margin: 0;
-  padding: 0;
-  background-color: #B0E0E6;
   top: 0px;
-  overflow: visible;
+  bottom: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 98%;
 }
-.body-container:after{
-  display: table;
-  clear: both;
-  content: "";
-  height: auto;
-}
-.menu{
-  background-color: #B0E0E6;
-  float: left;
-  width: 15%;
-  overflow: auto;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 50px;
-  height: 100%;
-}
-ul.menu-list{
+div.navi > ul {
   list-style-type: none;
-  overflow: auto;
-  text-align: center;
-  padding: 1px;
+  overflow: hidden;
+  background-color: DimGrey;
 }
-p.submenu{
-  font-weight: bold;
-  border-style: solid;
-}
-.main{
-  background-color: ;
+div.navi > ul > li {
+  display: inline;
   float: left;
-  width: 85%;
-  text-align: center;
-  border-style: ridge;
+  border-style: outset;
 }
-.footer{
-  background-color: #B0E0E6;
+div.navi > ul > li > a{
+  color: white;
+  display: block;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+div.navi > ul > li > a:hover{
+  color: black;
+  background-color: DeepSkyBlue;
+}
+
+
+div.body-container{
+  width: 98%;
+  padding: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-flex;
+}
+
+/*VERTICAL MENU*/
+div.navigation{
+  width: 15%;
+}
+div.navigation > ul{
+  margin: auto;
+  position: sticky;
+  top: 60px;
+}
+div.navigation > ul > li{
+  display: block;
+  text-align: center;
+  border-style: outset;
+  background-color: DimGrey;
+}
+div.navigation > ul > li > a{
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+div.navigation > ul > li > a:hover{
+  color: black;
+  background-color: DeepSkyBlue;
+}
+a.active{
+  background-color: DeepSkyBlue;
+}
+div.navigation > ul > p {
+  text-align: center;
+  color: white;
+  background-color: black;
+  margin: auto;
+  padding: 10px;
+}
+div.main{
+  padding: 10px;
+  float: left;
+  overflow: auto;
+  background-color: ;
+  width: inherit;
+}
+div.footer{
+  border-width: 1px;
+  padding: 0px;
+  margin: 10px;
   text-align: center;
 }
+
+/*RESPONSIVE CSS*/
 @media screen and (max-width:600px) {
-  .main{
+  div.main{
     width:100%;
   }
-  .menu{
+  div.navigation{
+    visibility: hidden;
+    width: 0%;
+  }
+  div.footer{
     visibility: hidden;
   }
-  .navi{
-    height: 85px;
-  }
-  .footer{
-    visibility: hidden;
-  }
-}
-li a{
-  display: block;
-  color: black;
-  padding: 8px 16px;
-  text-decoration: none;
-  border-style: outset;
-}
-li a:hover{
-  color: white;
-  background-color: green;
-}
-li a:hover:not(.active){
-  color: white;
-  background-color: grey;
-}
-.active{
-  color: white;
-  background-color: green;
-}
-.menu-hori{
-  margin: auto;
-  padding: 0;
-}
-#list{
-  float: left;
-  list-style-type: none;
-  display: inline;
-}
-#menu{
-  text-align: center;
-  border-style: outset;
 }
