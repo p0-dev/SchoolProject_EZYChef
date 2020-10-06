@@ -19,7 +19,11 @@ if(null == $username || null == $permission){
   <head>
     <meta charset="utf-8">
     <title>Ezychef Dashboard</title>
-    <link rel="stylesheet" href="/views/css/dashboard.css">
+    <style media="screen">
+    </style>
+    <link rel="stylesheet" href="/views/css/dboard.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0">
   </head>
 
   <!--body-->
@@ -27,12 +31,21 @@ if(null == $username || null == $permission){
 
     <!--header-->
     <div class="header">
-      <h1>This is the header</h1>
+      <h1>Ezychef Header</h1>
     </div>
 
     <!--horizontal navigation-->
     <div class="navi">
-      <h1>Navigation bar fuck</h1>
+      <div class="menu-hori">
+        <ul class="menu-hori">
+          <li id="list"> <a id="menu" class="active" href="#">Dashboard</a> </li>
+          <li id="list"> <a id="menu" class="" href="#">Dashboard</a> </li>
+          <li id="list"> <a id="menu" class="" href="#">Dashboard</a> </li>
+          <li id="list"> <a id="menu" class="" href="#">Dashboard</a> </li>
+          <li id="list"> <a id="menu" class="" href="#">Dashboard</a> </li>
+          <li id="list"> <a id="menu" class="" href="#">Dashboard</a> </li>
+        </ul>
+      </div>
     </div>
 
     <!--body container-->
@@ -41,12 +54,13 @@ if(null == $username || null == $permission){
       <!--vertical navigation-->
       <div class="menu">
         <ul class="menu-list">
-          <li> <a href="#">Menu 1</a> </li>
-          <li> <a href="#">Menu 1</a> </li>
-          <li> <a href="#">Menu 1</a> </li>
-          <li> <a href="#">Menu 1</a> </li>
-          <li> <a href="#">Menu 1</a> </li>
-          <li> <a href="#">Menu 1</a> </li>
+          <p class="submenu">Actions</p>
+          <li id=""> <a id="submenu" class="" href="#">Dashboard</a> </li>
+          <li id=""> <a id="submenu" class="" href="#">Dashboard</a> </li>
+          <li id=""> <a id="submenu" class="" href="#">Dashboard</a> </li>
+          <li id=""> <a id="submenu" class="" href="#">Dashboard</a> </li>
+          <li id=""> <a id="submenu" class="" href="#">Dashboard</a> </li>
+          <li id=""> <a id="submenu" class="" href="#">Dashboard</a> </li>
         </ul>
       </div>
 
