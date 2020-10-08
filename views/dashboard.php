@@ -17,7 +17,7 @@ if(!defined('AccessAllowance')){
 <!--TEST-->
 <?php
 //remove session for testing
-session_destroy();
+//session_destroy();
  ?>
 
 <!DOCTYPE html>
@@ -25,8 +25,8 @@ session_destroy();
   <head>
     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test site</title>
-    <link rel="stylesheet" href="/views/css/dboard.css">
+    <title>Ezychef Dashboard</title>
+    <link rel="stylesheet" href="/views/css/dashboard.css">
   </head>
   <body>
     <!--header-->

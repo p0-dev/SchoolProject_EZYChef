@@ -31,7 +31,6 @@ div.navi > ul {
 div.navi > ul > li {
   display: inline;
   float: left;
-  border-style: outset;
 }
 div.navi > ul > li > a{
   color: white;
@@ -68,8 +67,10 @@ div.navigation > ul{
 div.navigation > ul > li{
   display: block;
   text-align: center;
-  border-style: outset;
   background-color: DimGrey;
+  border-bottom-style: solid;
+  border-color: white;
+  border-width: thin;
 }
 div.navigation > ul > li > a{
   display: block;
