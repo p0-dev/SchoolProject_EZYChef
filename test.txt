@@ -1,8 +1,1 @@
-<<<<<<< HEAD
-From the master
-From the master again
 
-=======
-From master
-From test branch
->>>>>>> test
