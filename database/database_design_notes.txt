@@ -1,0 +1,45 @@
+/*
+user's permission level:
+0 - 4: from the lowest to the highest (0: default user) (4: administrator (only one))
+*/
+system administration (done)
+
+/*
+Edit flag is boolean.
+0 is default
+1 means this row is editing by someone.
+*/
+
+list of products
+- id (primary key)
+- description
+- edit flag
+
+option 1:
+year 2019 (each year has 12 months)
+year 2020
+
+option 2:
+sale unit per month
+- id
+- time (month + year)
+--> id and time are primary key and unique
+- sale unit
+- description
+- edit flag
+
+cost of sale per month
+- id
+- time (month + year)
+--> id and time are primary key and unique
+- cost of sale per month
+- description
+- edit flag
+
+--> cost of sale per unit each month
+- id
+- time
+--> id and time are primary key and unique.
+- cost of sale per unit each month
+- description
+- edit fag
