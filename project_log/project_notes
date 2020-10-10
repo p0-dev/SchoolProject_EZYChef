@@ -49,3 +49,13 @@ Future:
 - Analyzing statistics.
 - HTML and CSS illustration.
 - Feature expansion for the project.
+
+10/10/2020
+Done:
+- Re-design database --> New tables on database --> New model libraries on project.
+
+Future:
+- Import data from Ezychef to database (PHP function).
+- Show model data as table on dashboard.
+- HTML and CSS illustration for the data.
+- Think of new features and expansion for the project.
