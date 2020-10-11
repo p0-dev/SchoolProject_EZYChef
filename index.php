@@ -42,7 +42,7 @@ If not, proceeding to log in function-->
       <input type="text" id="txtUsername" name="txtUsername" value="" required maxlength="100"><br><br>
       <label for="txtPassword">Password:</label><br>
       <input type="password" id="txtPassword" name="txtPassword" value="" required><br><br>
-      <p hidden id="msgLogInError">Wrong password or username!</p>
+      <p hidden id="msgLogInError" style="color:red;">Wrong password or username!</p>
       <input type="submit" value="Log in">
     </form><br><hr>
 

@@ -22,7 +22,12 @@
   define('DATABASE', 'EzyChef');
 
   class databaseConnection{
-    /**/
+
+    /*
+      Purposes: connect to database through existed information.
+      Process: connect to database --> return null to the object if fails.
+      Output: pointer to mysqli object or null if fails.
+    */
     public function connect(){
       $this->mysqli = new mysqli(SERVER, USERNAME, PASSWORD, DATABASE);
       if ($this->mysqli->connect_error) {
@@ -30,11 +35,23 @@
         $this->mysqli = null;
       }
     }
-    /**/
+
+    /*
+      Purposes: close database connection.
+      Input: none.
+      Process: close database connection directly.
+      Output: none.
+    */
     public function close(){
       $this->mysqli->close();
     }
-    /**/
+
+    /*
+      Purposes: validating user's log in information.
+      Input: username and password.
+      Process: connect to database --> search for user's info --> return result.
+      Output: true --> dashboard page / false --> error page.
+    */
     public function userValidation($username, $password){
       if(null != $this->mysqli){
         $st = $this->mysqli->prepare('select * from system_administration where username = ? and password = ?');
@@ -63,6 +80,7 @@
         return false;
       }
     }
+
     /**/
 
   }
