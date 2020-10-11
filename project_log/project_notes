@@ -62,6 +62,8 @@ Future:
 
 12/10/2020
 Done:
--
+- Upload csv file form --> store csv info and url into session.
 Future:
-- 
+- Process csv file.
+- Illustration for dashboard.
+- Workflow integrity and data validation.

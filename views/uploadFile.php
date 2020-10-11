@@ -14,24 +14,30 @@ if(!defined('AccessAllowance')){
   exit('Something went wrong! Life sucks, hah!');
 }
 
-?>
+//getting session
+$docType = $_SESSION['docType'];
+$startMonth = $_SESSION['startMonth'];
+$startYear = $_SESSION['startYear'];
+$endMonth = $_SESSION['endMonth'];
+$endYear = $_SESSION['endYear'];
+
+ ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
   <head>
     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ezychef Dashboard</title>
-    <link rel="stylesheet" href="/views/css/layout.css">
-    <script type="text/javascript" src="/views/scripts/activeMenu.js"></script>
+     <link rel="stylesheet" href="/views/css/layout.css">
+     <script type="text/javascript" src="/views/scripts/activeMenu.js"></script>
+    <title>Import CSV</title>
   </head>
-
   <body>
 
     <!--active menu information-->
-    <input type="text" name="" value="dashboardMenu" hidden id="activeMenu">
-    <input type="text" name="" value="" hidden id="activeSubMenu">
+    <input type="text" name="" value="" hidden id="activeMenu">
+    <input type="text" name="" value="importCSVSubMenu" hidden id="activeSubMenu">
 
     <!--header-->
     <div class="header">
@@ -61,6 +67,21 @@ if(!defined('AccessAllowance')){
 
       <!--main-->
       <div class="main">
+
+        <!--document information preview-->
+        <h3>Document upload information preview</h3>
+        <label for="">Type of document: <?php echo $docType; ?> </label><br>
+        <label for="">Start month: <?php echo $startMonth; ?> </label><br>
+        <label for="">Start year: <?php echo $startYear; ?> </label><br>
+        <label for="">End month: <?php echo $endMonth; ?> </label><br>
+        <label for="">End year: <?php echo $endYear; ?> </label><br><br><hr><br>
+
+        <!--upload file-->
+        <form action="/import/uploading/" method="post" enctype="multipart/form-data">
+          Select csv file to upload:<br><br>
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type="submit" value="Upload csv file" name="submit">
+        </form>
 
       </div>
 

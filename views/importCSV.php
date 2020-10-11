@@ -14,24 +14,23 @@ if(!defined('AccessAllowance')){
   exit('Something went wrong! Life sucks, hah!');
 }
 
-?>
+ ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
   <head>
     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ezychef Dashboard</title>
-    <link rel="stylesheet" href="/views/css/layout.css">
-    <script type="text/javascript" src="/views/scripts/activeMenu.js"></script>
+     <link rel="stylesheet" href="/views/css/layout.css">
+     <script type="text/javascript" src="/views/scripts/activeMenu.js"></script>
+    <title>Import CSV</title>
   </head>
-
   <body>
 
     <!--active menu information-->
-    <input type="text" name="" value="dashboardMenu" hidden id="activeMenu">
-    <input type="text" name="" value="" hidden id="activeSubMenu">
+    <input type="text" name="" value="" hidden id="activeMenu">
+    <input type="text" name="" value="importCSVSubMenu" hidden id="activeSubMenu">
 
     <!--header-->
     <div class="header">
@@ -61,6 +60,28 @@ if(!defined('AccessAllowance')){
 
       <!--main-->
       <div class="main">
+
+        <!--import csv information form-->
+        <h1>Import CSV</h1><br><hr><br><br>
+        <form class="" action="/import/upload/" method="post">
+          <!--document type-->
+          <label for="">Type of document: </label><br>
+          <input type="radio" name="inputDocType" value="sale_unit" checked>
+          <label for="">Sale unit</label><br>
+          <input type="radio" name="inputDocType" value="sale_cost">
+          <label for="">Cost of sales</label><br><br>
+
+          <!--time range-->
+          <label for="">Start time:</label><br>
+          <input type="text" name="inputStartTime" value="" placeholder="MM-YYYY" required><br><br>
+
+          <label for="">End time:</label><br>
+          <input type="text" name="inputEndTime" value="" placeholder="MM-YYYY" required><br><br>
+
+          <!--submit-->
+          <input type="submit" name="" value="Next">
+
+        </form>
 
       </div>
 
