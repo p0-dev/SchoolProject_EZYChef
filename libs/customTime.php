@@ -1,4 +1,6 @@
 <?php
+//checking direct access not through router
+
 class customTime{
   private $realYear; //string
   private $realMonth; //string
@@ -24,13 +26,4 @@ class customTime{
   function getCompareTime(){
     return $this->compareTime;
   }
-}
-
-$startTime = new customTime('2019', '7');
-$endTime = new customTime('2020', '4');
-echo $startTime->getCompareTime() . '<br>';
-echo $endTime->getCompareTime() . '<br>';
-
-for(;$startTime <= $endTime; $startTime->increaseMonth(1)){
-  echo $startTime->display();
 }

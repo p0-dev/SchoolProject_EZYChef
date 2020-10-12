@@ -124,15 +124,7 @@
     }
 
     /**/
-    public function insertNewUnitSaleRecord($id, $time, $unit){
-      if(null != $this->mysqli){
-        $st = $this->mysqli->prepare('insert into unit_sales(id, record_time, sale_unit) values(?, ?, ?)');
-        if(false != $st){
-          $st->bind_param('ss');
-        }
-      }
-      return false;
-    }
+    /**/
 
   }
  ?>

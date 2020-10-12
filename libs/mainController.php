@@ -18,6 +18,7 @@
     function __construct(){
       require_once 'view.php';
       require_once 'database_connection.php';
+      require_once 'customTime.php';
       $this->view = new view();
       $this->database = new databaseConnection();
     }

@@ -1,0 +1,2 @@
+1. uploads folder permission
+--> have to have write permission for uploads (folder) in root folder.
