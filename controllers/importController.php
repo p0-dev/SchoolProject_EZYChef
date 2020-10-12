@@ -3,7 +3,22 @@ session_start();
 //checking session
 //checking access through router
 
+//constant
+define('ID', 1);
+define('DES', 2);
+define('INDEX', 3);
+define('UNIT_SALE_MODEL', '../models/unit_sales.php');
+define('COST_SALE_MODEL', '../models/sale_cost.php');
+
 class importController extends mainController{
+
+  /**/
+  public function findProductId($id){
+    $this->database->connect();
+    $result = $this->database->searchProductById($id);
+    $this->database->close();
+    return $result;
+  }
 
   /**/
   public function view(){
@@ -51,7 +66,84 @@ class importController extends mainController{
 
   /**/
   public function process(){
-    echo 'inside process';
+    //delete file
+    //getting session
+    $docType = $_SESSION['docType'];
+    $startMonth = $_SESSION['startMonth'];
+    $startYear = $_SESSION['startYear'];
+    $endMonth = $_SESSION['endMonth'];
+    $endYear = $_SESSION['endYear'];
+    $fileURL = $_SESSION['fileURL'];
+    //destroy unnecessary session
+    /*
+    unset($_SESSION['docType']);
+    unset($_SESSION['startMonth']);
+    unset($_SESSION['startYear']);
+    unset($_SESSION['endMonth']);
+    unset($_SESSION['endYear']);
+    unset($_SESSION['fileURL']);
+    */
+    //vars
+    $arr = array();
+    $count = 0;
+    $endYear = intval($endYear);
+    $endMonth = intval($endMonth);
+    $startMonth = intval($startMonth);
+    $startYear = intval($startYear);
+    $indexStart = null;
+    //process
+    if(file_exists($fileURL)){
+      $file = fopen($fileURL, 'r');
+      if(false != $file){
+        while(!feof($file)){
+          $indexStart = INDEX;
+          $month = $startMonth;
+          $year = $startYear;
+          $string = fgets($file);
+          $string = explode(';', $string);
+          $id = $string[ID];
+          $des = $string[DES];
+          if($this->findProductId($id)){
+            $count++;
+            echo $id . '<br>';
+            $yearCompare = $year + ($month/12);
+            $yearEndCompare = $endYear + ($endMonth/12);
+            for(; $yearCompare <= $yearEndCompare ; ){
+              echo 'month = ' . $month . '/' . $year . '-->' . $string[$indexStart++] . '<br>';
+              $month++;
+              if(12 < $month){
+                $month = $month - 12;
+                $year = $year + 1;
+              }
+              $yearCompare = $year + ($month/12);
+              $yearEndCompare = $endYear + ($endMonth/12);
+            }
+          }
+        }
+        echo $count;
+        fclose($file);
+      }
+      else{
+        die('can not open file!');
+        //redirect to error page
+      }
+    }
+    else{
+      echo 'motherfucker';
+      //redirect to error page
+    }
+
+    //import to database
+    if('sale_unit' == $docType){
+      echo 'process sale unit';
+    }
+    else if('sale_cost' == $docType){
+      echo 'process sale cost';
+    }
+    else{
+      echo 'do not understand';
+      //redirect to error page
+    }
   }
 
   /**/

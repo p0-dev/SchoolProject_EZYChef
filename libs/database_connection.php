@@ -65,6 +65,8 @@
         $st->execute();
         if(false == $st){echo 'Executing fail!';}
         $result = $st->get_result();
+        $st->close();
+        $this->mysqli->close();
         if(1 == $result->num_rows){
           //setting session
           $row = $result->fetch_assoc();
@@ -74,11 +76,32 @@
         }else{
           return false;
         }
-        $st->close();
-        $this->mysqli->close();
       }else{
         return false;
       }
+    }
+
+    /**/
+    public function searchProductById($id){
+      if(null != $this->mysqli){
+        $st = $this->mysqli->prepare('select * from products where id = ?');
+        if(false != $st){
+          $st->bind_param('s', $id);
+          if(false != $st){
+            $st->execute();
+            if(false != $st){
+              $result = $st->get_result();
+              $result_row = $result->num_rows;
+              $st->close();
+              $this->mysqli->close();
+              if(1 == $result_row){
+                return true;
+              }
+            }
+          }
+        }
+      }
+      return false;
     }
 
     /**/

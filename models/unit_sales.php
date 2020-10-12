@@ -64,5 +64,20 @@ class unit_sales{
       return $this;
   }
 
+  /**/
+  public function display(){
+    echo 'id = ' . $this->product_id . '<br>';
+    echo 'id = ' . $this->record_time . '<br>';
+    echo 'id = ' . $this->sale_unit . '<br>';
+    echo 'id = ' . $this->description . '<br>';
+  }
+
+  /**/
+  public function test(){
+    echo 'unit sales model - test';
+  }
+
+  /**/
+
 }
 ?>
