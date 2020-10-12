@@ -67,9 +67,9 @@ class unit_sales{
   /**/
   public function display(){
     echo 'id = ' . $this->product_id . '<br>';
-    echo 'id = ' . $this->record_time . '<br>';
-    echo 'id = ' . $this->sale_unit . '<br>';
-    echo 'id = ' . $this->description . '<br>';
+    echo 'time = ' . $this->record_time . '<br>';
+    echo 'unit = ' . $this->sale_unit . '<br>';
+    echo 'description = ' . $this->description . '<br>';
   }
 
   /**/

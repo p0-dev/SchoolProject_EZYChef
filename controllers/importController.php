@@ -50,11 +50,20 @@ class importController extends mainController{
 
   /**/
   public function uploading(){
+    //getting vars
     $target_dir = '../uploads/';
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $fileName = $_FILES["fileToUpload"]["name"];
     $fileTmpName = $_FILES["fileToUpload"]["tmp_name"];
     $_SESSION['fileURL'] = $target_file;
+
+    //debug
+    //echo $target_dir . '<br>';
+    //echo $target_file . '<br>';
+    //echo $fileName . '<br>';
+    //echo $fileTmpName . '<br>';
+
+    //upload file to folder inside webserver
     if(move_uploaded_file($fileTmpName, $target_file)){
       $this->view->redirect('import', 'process');
     }
@@ -66,7 +75,6 @@ class importController extends mainController{
 
   /**/
   public function process(){
-    //delete file
     //getting session
     $docType = $_SESSION['docType'];
     $startMonth = $_SESSION['startMonth'];
@@ -74,6 +82,7 @@ class importController extends mainController{
     $endMonth = $_SESSION['endMonth'];
     $endYear = $_SESSION['endYear'];
     $fileURL = $_SESSION['fileURL'];
+
     //destroy unnecessary session
     /*
     unset($_SESSION['docType']);
@@ -83,6 +92,7 @@ class importController extends mainController{
     unset($_SESSION['endYear']);
     unset($_SESSION['fileURL']);
     */
+
     //vars
     $arr = array();
     $count = 0;
@@ -91,6 +101,8 @@ class importController extends mainController{
     $startMonth = intval($startMonth);
     $startYear = intval($startYear);
     $indexStart = null;
+    $tmp = null;
+
     //process
     if(file_exists($fileURL)){
       $file = fopen($fileURL, 'r');
@@ -105,11 +117,13 @@ class importController extends mainController{
           $des = $string[DES];
           if($this->findProductId($id)){
             $count++;
-            echo $id . '<br>';
             $yearCompare = $year + ($month/12);
             $yearEndCompare = $endYear + ($endMonth/12);
             for(; $yearCompare <= $yearEndCompare ; ){
+              //getting data
+              require_once UNIT_SALE_MODEL;
               echo 'month = ' . $month . '/' . $year . '-->' . $string[$indexStart++] . '<br>';
+              //import into database
               $month++;
               if(12 < $month){
                 $month = $month - 12;
@@ -120,7 +134,6 @@ class importController extends mainController{
             }
           }
         }
-        echo $count;
         fclose($file);
       }
       else{
@@ -144,6 +157,8 @@ class importController extends mainController{
       echo 'do not understand';
       //redirect to error page
     }
+
+    //delete uploaded file
   }
 
   /**/

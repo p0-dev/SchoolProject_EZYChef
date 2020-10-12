@@ -1,17 +1,21 @@
 <?php
 define("AccessAllowance", true);
-echo 'test' . '<br>';
 
-require_once 'libs/database_connection.php';
-//require_once 'controllers/importController.php';
+$test1 = strtotime('2018-07-12');
+$date1 = date('Y-m', $test1);
 
-$db = new databaseConnection();
-$db->connect();
+$test2 = strtotime('2020-04-12');
+$date2 = date('Y-m', $test2);
 
-echo $db->searchProductById('CPAsep-Plum200');
+$test3 = strtotime('2012-04');
+$date3 = date('Y-m', $test3);
 
-$db->close();
+echo $date1 . '<br>';
+echo $date2 . '<br>';
+
+echo $date3;
+$i = 0;
 
 
-
-echo 'test end' . '<br>';
+echo $i . '<br>';
+echo 'test';

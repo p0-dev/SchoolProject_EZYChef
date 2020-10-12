@@ -105,6 +105,34 @@
     }
 
     /**/
+    public function insertNewProduct($id, $description){
+      if(null != $this->mysqli){
+        $st = $this->mysqli->prepare('insert into products(id, description) values(?, ?)');
+        if(false != $st){
+          $st->bind_param('ss', $id, $description);
+          if(false != $st){
+            $st->execute();
+            $st->close();
+            $this->mysqli->close();
+            if(false != $st){
+              return true;
+            }
+          }
+        }
+      }
+      return false;
+    }
+
+    /**/
+    public function insertNewUnitSaleRecord($id, $time, $unit){
+      if(null != $this->mysqli){
+        $st = $this->mysqli->prepare('insert into unit_sales(id, record_time, sale_unit) values(?, ?, ?)');
+        if(false != $st){
+          $st->bind_param('ss');
+        }
+      }
+      return false;
+    }
 
   }
  ?>
