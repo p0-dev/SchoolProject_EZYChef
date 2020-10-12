@@ -73,10 +73,10 @@ if(!defined('AccessAllowance')){
 
           <!--time range-->
           <label for="">Start time:</label><br>
-          <input type="text" name="inputStartTime" value="" placeholder="MM-YYYY" required><br><br>
+          <input type="text" name="inputStartTime" value="" placeholder="YYYY-MM" required><br><br>
 
           <label for="">End time:</label><br>
-          <input type="text" name="inputEndTime" value="" placeholder="MM-YYYY" required><br><br>
+          <input type="text" name="inputEndTime" value="" placeholder="YYYY-MM" required><br><br>
 
           <!--submit-->
           <input type="submit" name="" value="Next">

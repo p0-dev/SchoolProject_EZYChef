@@ -16,11 +16,8 @@ if(!defined('AccessAllowance')){
 
 //getting session
 $docType = $_SESSION['docType'];
-$startMonth = $_SESSION['startMonth'];
-$startYear = $_SESSION['startYear'];
-$endMonth = $_SESSION['endMonth'];
-$endYear = $_SESSION['endYear'];
-
+$startTime = unserialize($_SESSION['startTime']);
+$endTime = unserialize($_SESSION['endTime']);
  ?>
 
 
@@ -71,10 +68,8 @@ $endYear = $_SESSION['endYear'];
         <!--document information preview-->
         <h3>Document upload information preview</h3>
         <label for="">Type of document: <?php echo $docType; ?> </label><br>
-        <label for="">Start month: <?php echo $startMonth; ?> </label><br>
-        <label for="">Start year: <?php echo $startYear; ?> </label><br>
-        <label for="">End month: <?php echo $endMonth; ?> </label><br>
-        <label for="">End year: <?php echo $endYear; ?> </label><br><br><hr><br>
+        <label for="">Start time: <?php echo $startTime->displayTime(); ?> </label><br>
+        <label for="">End time: <?php echo $endTime->displayTime(); ?> </label><br><br><hr><br>
 
         <!--upload file-->
         <form action="/import/uploading/" method="post" enctype="multipart/form-data">

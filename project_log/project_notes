@@ -1,17 +1,22 @@
-Problems with the project:
-Important:
-- Designing a way to import data from Ezychef automatically from MYOB excel file.
-- Design database as two separate databases: one is for display information, another is for additional functions.
-Optional:
-- CSS or PHP graphical graphs.
-- HTML5 for validation
-- CSS version for both desktop and phone
-
+Porject objectives:
+- Showing information on dashboard page:
+  + Connect to database.
+  + Get database's data to show on dashboard.
+  + Illustration with HTML, PHP, CSS and Javascripts on dashboard page.
+- Import CSV for information and insert info into database:
+ + Upload, read and process CSV on website --> Insert data into database.
+ + Reload dashboard for new updated information.
+- Validation, work flows and website integrity:
+  + Input validation for user's input.
+  + Checking work flows inside websites and website's integrity in order to avoid direct access or malfunction.
+  + Re-directing to error pages or catching errors inside the website. Could use logging service if necessary.
+  + Try...Catch... or re-code core function if necessary.
+- Test and report.
+- Deploy info.
 27/07/2020
  Done:
  - Setting up environment for PHP development.
  - Database connection with mariaDB through mysqli.
-
  Future:
  - MVC with PHP.
  - Secured folder where the customer could not access to (php and html file).
@@ -67,3 +72,10 @@ Future:
 - Process csv file.
 - Illustration for dashboard.
 - Workflow integrity and data validation.
+
+13/10/2020
+Done:
+- Process CSV with time and other information.
+Future:
+- Continue to process CSV.
+- Checking before import CSV.

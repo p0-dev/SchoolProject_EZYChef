@@ -27,24 +27,25 @@ class importController extends mainController{
 
   /**/
   public function upload(){
+    //get post vars
     $docType = $_POST['inputDocType'];
-    $startTime = $_POST['inputStartTime'];
-    $endTime = $_POST['inputEndTime'];
-
-    $startTime = explode('-', $startTime);
-    $startMonth = $startTime[0];
-    $startYear = $startTime[1];
-
-    $endTime = explode('-', $endTime);
-    $endMonth = $endTime[0];
-    $endYear = $endTime[1];
-
+    $startTimeStr = $_POST['inputStartTime'];
+    $endTimeStr = $_POST['inputEndTime'];
+    //process input datetime
+    $startTimeStr = explode('-', $startTimeStr);
+    $startTime = new customTime($startTimeStr[0], $startTimeStr[1]);
+    $endTimeStr = explode('-', $endTimeStr);
+    $endTime = new customTime($endTimeStr[0], $endTimeStr[1]);
+    //info into session
     $_SESSION['docType'] = $docType;
-    $_SESSION['startMonth'] = $startMonth;
-    $_SESSION['startYear'] = $startYear;
-    $_SESSION['endMonth'] = $endMonth;
-    $_SESSION['endYear'] = $endYear;
-
+    $_SESSION['startTime'] = serialize($startTime);
+    $_SESSION['endTime'] = serialize($endTime);
+    //debug
+    /*
+    echo $docType;
+    echo $startTime->displayTime() . '<br>';
+    echo $endTime->displayTime() . '<br>';
+    */
     $this->view->render('uploadFile.php');
   }
 
@@ -56,13 +57,11 @@ class importController extends mainController{
     $fileName = $_FILES["fileToUpload"]["name"];
     $fileTmpName = $_FILES["fileToUpload"]["tmp_name"];
     $_SESSION['fileURL'] = $target_file;
-
     //debug
     //echo $target_dir . '<br>';
     //echo $target_file . '<br>';
     //echo $fileName . '<br>';
     //echo $fileTmpName . '<br>';
-
     //upload file to folder inside webserver
     if(move_uploaded_file($fileTmpName, $target_file)){
       $this->view->redirect('import', 'process');
@@ -77,72 +76,48 @@ class importController extends mainController{
   public function process(){
     //getting session
     $docType = $_SESSION['docType'];
-    $startMonth = $_SESSION['startMonth'];
-    $startYear = $_SESSION['startYear'];
-    $endMonth = $_SESSION['endMonth'];
-    $endYear = $_SESSION['endYear'];
+    $startTime = unserialize($_SESSION['startTime']);
+    $endTime = unserialize($_SESSION['endTime']);
     $fileURL = $_SESSION['fileURL'];
-
+    //debug
+    //*
+    echo $docType . '<br>';
+    echo $startTime->displayTime() . '<br>';
+    echo $endTime->displayTime() . '<br>';
+    /*/
     //destroy unnecessary session
     /*
     unset($_SESSION['docType']);
-    unset($_SESSION['startMonth']);
-    unset($_SESSION['startYear']);
-    unset($_SESSION['endMonth']);
-    unset($_SESSION['endYear']);
-    unset($_SESSION['fileURL']);
+    unset($_SESSION['startTime']);
+    unset($_SESSION['endTime']);
     */
-
     //vars
-    $arr = array();
+    $arr = array(); //return result
     $count = 0;
-    $endYear = intval($endYear);
-    $endMonth = intval($endMonth);
-    $startMonth = intval($startMonth);
-    $startYear = intval($startYear);
-    $indexStart = null;
-    $tmp = null;
 
     //process
     if(file_exists($fileURL)){
       $file = fopen($fileURL, 'r');
       if(false != $file){
         while(!feof($file)){
-          $indexStart = INDEX;
-          $month = $startMonth;
-          $year = $startYear;
-          $string = fgets($file);
-          $string = explode(';', $string);
-          $id = $string[ID];
-          $des = $string[DES];
-          if($this->findProductId($id)){
-            $count++;
-            $yearCompare = $year + ($month/12);
-            $yearEndCompare = $endYear + ($endMonth/12);
-            for(; $yearCompare <= $yearEndCompare ; ){
-              //getting data
-              require_once UNIT_SALE_MODEL;
-              echo 'month = ' . $month . '/' . $year . '-->' . $string[$indexStart++] . '<br>';
-              //import into database
-              $month++;
-              if(12 < $month){
-                $month = $month - 12;
-                $year = $year + 1;
-              }
-              $yearCompare = $year + ($month/12);
-              $yearEndCompare = $endYear + ($endMonth/12);
+          $row = fgets($file);
+          $row = explode(';', $row);
+          if($this->findProductId($row[1])){
+            echo $row[1] . '-->' . $row[2] . '<br>';
+            for($tmp = new customTime($startTime->getYear(), $startTime->getMonth()), $index = INDEX; $tmp->getCompareTime() <= $endTime->getCompareTime(); $tmp->increaseMonth(1), $index++){
+              echo 'time = ' . $tmp->displayTime() . '-->' . $row[$index] . '<br>';
             }
           }
         }
         fclose($file);
       }
       else{
-        die('can not open file!');
+        die('can not open file! - import process!');
         //redirect to error page
       }
     }
     else{
-      echo 'motherfucker';
+      die('file is not existed!');
       //redirect to error page
     }
 
