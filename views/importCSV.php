@@ -81,6 +81,9 @@ if(!defined('AccessAllowance')){
           <input type="submit" name="" value="Next" id="submit"><br><br>
           <p id="errorMessage" style="color: red;" hidden></p>
 
+          <!--validation input-->
+          <input type="text" name="fromImportCSV" value="" hidden>
+
         </form>
 
       </div>

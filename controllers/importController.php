@@ -1,8 +1,15 @@
 <?php
 session_start();
 //checking session
+$username = $_SESSION['USER'];
+$permission = $_SESSION['PERMISSION'];
+if(null == $username || null == $permission){
+  exit('Something went wrong! Life sucks, hah!');
+}
 //checking access through router
-
+if(!defined('AccessAllowance')){
+  exit('Something went wrong! Life sucks, hah!');
+}
 //constant
 define('ID', 1);
 define('DES', 2);
@@ -27,6 +34,11 @@ class importController extends mainController{
 
   /**/
   public function upload(){
+    //checking integrity of website
+    if(!isset($_POST['fromImportCSV']) || !isset($_POST['inputDocType']) || !isset($_POST['inputStartTime']) || !isset($_POST['inputEndTime'])){
+      exit('Not nice mate! Go screw yourself!');
+      //redirect to error page
+    }
     //get post vars
     $docType = $_POST['inputDocType'];
     $startTimeStr = $_POST['inputStartTime'];
@@ -51,6 +63,11 @@ class importController extends mainController{
 
   /**/
   public function uploading(){
+    //validation
+    if(!isset($_POST['fromUploadFile'])){
+      die('me may deo upload file a!');
+      //redirect to error page
+    }
     //getting vars
     $target_dir = '../uploads/';
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);

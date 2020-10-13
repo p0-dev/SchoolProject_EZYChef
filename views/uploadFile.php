@@ -27,7 +27,6 @@ $endTime = unserialize($_SESSION['endTime']);
     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="/views/css/layout.css">
-     <script type="text/javascript" src="/views/scripts/activeMenu.js"></script>
     <title>Import CSV</title>
   </head>
   <body>
@@ -72,10 +71,17 @@ $endTime = unserialize($_SESSION['endTime']);
         <label for="">End time: <?php echo $endTime->displayTime(); ?> </label><br><br><hr><br>
 
         <!--upload file-->
-        <form action="/import/uploading/" method="post" enctype="multipart/form-data">
+        <form action="/import/uploading/" method="post" enctype="multipart/form-data" id="uploadFileForm">
           Select csv file to upload:<br><br>
-          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type="file" name="fileToUpload" id="fileToUpload" required id="fileToUpload">
           <input type="submit" value="Upload csv file" name="submit">
+
+          <!--validation-->
+          <input type="text" name="fromUploadFile" value="" hidden>
+
+          <!--err message-->
+          <p id="errMes" hidden style="color: red;"></p>
+
         </form>
 
       </div>
@@ -89,6 +95,9 @@ $endTime = unserialize($_SESSION['endTime']);
       <h1>Ezychef information:</h1>
       <h3>This is a fucking company with a fucking CEO!</h3>
     </div>
+
+    <script type="text/javascript" src="/views/scripts/activeMenu.js"></script>
+    <script type="text/javascript" src="/views/scripts/validateFile.js"></script>
 
   </body>
 </html>
