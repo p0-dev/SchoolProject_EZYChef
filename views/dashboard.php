@@ -24,7 +24,6 @@ if(!defined('AccessAllowance')){
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ezychef Dashboard</title>
     <link rel="stylesheet" href="/views/css/layout.css">
-    <script type="text/javascript" src="/views/scripts/activeMenu.js"></script>
   </head>
 
   <body>
@@ -73,6 +72,8 @@ if(!defined('AccessAllowance')){
       <h1>Ezychef information:</h1>
       <h3>This is a fucking company with a fucking CEO!</h3>
     </div>
+
+    <script type="text/javascript" src="/views/scripts/activeMenu.js"></script>
 
   </body>
 </html>

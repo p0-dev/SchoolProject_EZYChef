@@ -23,7 +23,6 @@ if(!defined('AccessAllowance')){
     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="/views/css/layout.css">
-     <script type="text/javascript" src="/views/scripts/activeMenu.js"></script>
     <title>Import CSV</title>
   </head>
   <body>
@@ -63,7 +62,7 @@ if(!defined('AccessAllowance')){
 
         <!--import csv information form-->
         <h1>Import CSV</h1><br><hr><br><br>
-        <form class="" action="/import/upload/" method="post">
+        <form class="" action="/import/upload/" method="post" id="importForm">
           <!--document type-->
           <label for="">Type of document: </label><br>
           <input type="radio" name="inputDocType" value="sale_unit" checked>
@@ -73,13 +72,14 @@ if(!defined('AccessAllowance')){
 
           <!--time range-->
           <label for="">Start time:</label><br>
-          <input type="text" name="inputStartTime" value="" placeholder="YYYY-MM" required><br><br>
+          <input type="text" name="inputStartTime" value="" placeholder="YYYY-MM" required id="inputStartTime"><br><br>
 
           <label for="">End time:</label><br>
-          <input type="text" name="inputEndTime" value="" placeholder="YYYY-MM" required><br><br>
+          <input type="text" name="inputEndTime" value="" placeholder="YYYY-MM" required id="inputEndTime"><br><br>
 
           <!--submit-->
-          <input type="submit" name="" value="Next">
+          <input type="submit" name="" value="Next" id="submit"><br><br>
+          <p id="errorMessage" style="color: red;" hidden></p>
 
         </form>
 
@@ -94,6 +94,9 @@ if(!defined('AccessAllowance')){
       <h1>Ezychef information:</h1>
       <h3>This is a fucking company with a fucking CEO!</h3>
     </div>
+
+    <script src="/views/scripts/validateInputTime.js"></script>
+    <script  src="/views/scripts/activeMenu.js"></script>
 
   </body>
 </html>

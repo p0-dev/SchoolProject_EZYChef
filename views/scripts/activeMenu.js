@@ -13,4 +13,4 @@ function init(){
   }catch(e){}
 }
 
-window.onload = init;
+init();
