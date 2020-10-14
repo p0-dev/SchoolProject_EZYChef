@@ -66,6 +66,17 @@ create table if not exists profit(
 );
 
 /**/
+create table if not exists unit_profit(
+  product_id varchar(255) not null,
+  record_time DATE not null,
+  value float not null,
+  description text null default 'N/A',
+  edit_flag boolean not null default FALSE,
+  primary key(product_id, record_time),
+  foreign key(product_id) references product(product_id) on delete restrict on update cascade
+);
+
+/**/
 create table if not exists supplier(
   supplier_id varchar(255) not null primary key,
   description text null default 'N/A',

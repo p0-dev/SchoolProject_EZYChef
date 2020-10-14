@@ -10,10 +10,6 @@ define('SERVER', 'localhost');
 define('USERNAME', 'ezychef');
 define('PASSWORD', '123456');
 define('DATABASE', 'EzyChef');
-define('PRODUCT_MODEL', '../models/products.php');
-define('SALE_COST_MODEL', '../models/sale_cost.php');
-define('UNIT_SALE_MODEL', '../models/unit_sales.php');
-define('SALE_COST_UNIT_MODEL', '../models/sale_cost_unit.php');
 
 class databaseConnection{
 
@@ -78,7 +74,7 @@ class databaseConnection{
   /**/
   public function searchProductById($id){
     if(null != $this->mysqli){
-      $st = $this->mysqli->prepare('select * from products where id = ?');
+      $st = $this->mysqli->prepare('select * from product where product_id = ?');
       if(false != $st){
         $st->bind_param('s', $id);
         if(false != $st){
@@ -101,7 +97,7 @@ class databaseConnection{
   /**/
   public function insertNewProduct($id, $description){
     if(null != $this->mysqli){
-      $st = $this->mysqli->prepare('insert into products(id, description) values(?, ?)');
+      $st = $this->mysqli->prepare('insert into product(product_id, description) values(?, ?)');
       if(false != $st){
         $st->bind_param('ss', $id, $description);
         if(false != $st){
