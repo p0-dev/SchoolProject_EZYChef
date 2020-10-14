@@ -91,6 +91,13 @@ class importController extends mainController{
 
   /**/
   public function process(){
+    //validation
+    if(!isset($_SESSION['docType'])){
+      die('import/process - no doc type');
+    }
+    else if(!isset($_SESSION['fileURL'])){http://ezychef/import/process
+      die('import/process - no file url');
+    }
     //getting session
     $docType = $_SESSION['docType'];
     $startTime = unserialize($_SESSION['startTime']);
@@ -107,6 +114,7 @@ class importController extends mainController{
     unset($_SESSION['docType']);
     unset($_SESSION['startTime']);
     unset($_SESSION['endTime']);
+    unset($_SESSION['$fileURL']);
     */
     //vars
     $arr = array(); //return result
