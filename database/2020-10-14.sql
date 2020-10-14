@@ -9,8 +9,10 @@ create table if not exists system_administration(
   description text null default 'N/A',
   edit_flag boolean not null default FALSE
 );
+/*
 insert into system_administration(username, password, permission)
 values('admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 4);
+*/
 
 /**/
 create table if not exists product(
@@ -101,18 +103,19 @@ create table if not exists material_purchase(
 
 /**/
 create table if not exists supplier_material(
-  index int auto_increment not null primary key,
+  indexID int AUTO_INCREMENT not null,
   material_id varchar(255) not null,
   supplier_id varchar(255) not null,
   description text null default 'N/A',
   edit_flag boolean not null default FALSE,
+  primary key(indexID),
   foreign key(material_id) references material(material_id) on delete restrict on update cascade,
   foreign key(supplier_id) references supplier(supplier_id) on delete restrict on update cascade
 );
 
 /**/
 create table if not exists supplier_material_purchase(
-  index int not null primary key,
+  indexID int not null primary key,
   startTime DATE not null,
   endTime DATE not null,
   quantity float not null,
@@ -120,5 +123,5 @@ create table if not exists supplier_material_purchase(
   unit_price float not null,
   description text null default 'N/A',
   edit_flag boolean not null default FALSE,
-  foreign key(index) references supplier_material(index) on delete restrict on update cascade
+  foreign key(indexID) references supplier_material(indexID) on delete restrict on update cascade
 );
