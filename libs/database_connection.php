@@ -120,7 +120,7 @@ class databaseConnection{
   /**/
   function insertArrUnitSale($arrIn){
     //require_once PRODUCT_MODEL;
-    echo 'inside insertArrUnitSale';
+    echo 'inside insertArrUnitSale <br>';
     return false;
   }
 

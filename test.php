@@ -8,6 +8,8 @@ require_once 'models/unit_sales.php';
 require_once 'models/sale_cost.php';
 require_once 'models/sale_cost_unit.php';
 
-
-
+$con = new databaseConnection();
+$con->connect();
+$con->insertArrUnitSale('11');
+$con->close();
 echo 'end test'.'<br>';
