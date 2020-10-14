@@ -16,6 +16,7 @@ define('DES', 2);
 define('INDEX', 3);
 define('SALE_UNIT_MODEL', '../models/sale_unit.php');
 define('COST_SALE_MODEL', '../models/sale_cost.php');
+define('SALE_MODEL', '../models/sale.php');
 
 class importController extends mainController{
 
@@ -99,6 +100,48 @@ class importController extends mainController{
       }
     }else{
       die('processSaleCost - import process - input null');
+    }
+  }
+
+  /**/
+  private function processSale($fileURL, $startTime, $endTime){
+    $arr = array();
+    $index = 0;
+    if(null != $fileURL && null != $startTime && null != $endTime){
+      if(file_exists($fileURL)){
+        $file = fopen($fileURL, 'r');
+        if(false != $file){
+          require_once SALE_MODEL;
+          while(!feof($file)){
+            $row = fgets($file);
+            $row = explode(';', $row);
+            if($this->findProductId($row[ID])){
+              for($tmp = new customTime($startTime->getYear(), $startTime->getMonth()), $i = INDEX; $tmp->getCompareTime() <= $endTime->getCompareTime(); $tmp->increaseMonth(1), $i++){
+                $row[$i] = str_replace("$",'',$row[$i]);
+                $row[$i] = str_replace(",",'',$row[$i]);
+                $row[$i] = floatval($row[$i]);
+                $obj = new sale($row[ID], $tmp->returnTimeToSQL(), $row[$i]);
+                $arr[$index++] = $obj;
+              }
+            }
+          }
+          fclose($file);
+          $this->database->connect();
+          $test = $this->database->insertArrSale($arr);
+          $this->database->close();
+          if(false != $test){
+            $this->view->redirect('dashboard', 'view');
+          }else{
+            die('processSale - import process - insert database fail');
+          }
+        }else{
+          die('processSale - import process - file can not be open');
+        }
+      }else{
+        die('processSale - import process - file null');
+      }
+    }else{
+      die('processSale - import process - input null');
     }
   }
 
@@ -200,6 +243,7 @@ class importController extends mainController{
     switch ($docType) {
       case 'sale_unit': $this->processSaleUnit($fileURL, $startTime, $endTime); break;
       case 'sale_cost': $this->processSaleCost($fileURL, $startTime, $endTime); break;
+      case 'sale': $this->processSale($fileURL, $startTime, $endTime); break;
       default: die('proces import - wrong doc type'); break;
     }
   }

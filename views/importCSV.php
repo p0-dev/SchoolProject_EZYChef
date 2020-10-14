@@ -68,7 +68,10 @@ if(!defined('AccessAllowance')){
           <input type="radio" name="inputDocType" value="sale_unit" checked>
           <label for="">Sale unit</label><br>
           <input type="radio" name="inputDocType" value="sale_cost">
-          <label for="">Cost of sales</label><br><br>
+          <label for="">Cost of sales</label><br>
+          <input type="radio" name="inputDocType" value="sale">
+          <label for="">Sale</label>
+          <br><br>
 
           <!--time range-->
           <label for="">Start time:</label><br>

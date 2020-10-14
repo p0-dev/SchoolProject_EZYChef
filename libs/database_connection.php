@@ -10,7 +10,6 @@ define('SERVER', 'localhost');
 define('USERNAME', 'ezychef');
 define('PASSWORD', '123456');
 define('DATABASE', 'EzyChef');
-//define('SALE_UNIT_MODEL', );
 
 class databaseConnection{
 
@@ -150,5 +149,27 @@ class databaseConnection{
     }
     return false;
   }
+
+  /**/
+  function insertArrSale($arr){
+    if(null != $this->mysqli && null != $arr && is_array($arr) && 0 < count($arr)){
+      $st = $this->mysqli->prepare('insert into sale(product_id, record_time, value) values(?, ?, ?)');
+      if(false != $st){
+        $st->bind_param('sss', $id, $record, $value);
+        if(false != $st){
+          foreach ($arr as $key) {
+            $id = $key->getProductId();
+            $record = $key->getRecordTime();
+            $value = $key->getValue();
+            $st->execute();
+          }
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  /**/
 
 }
