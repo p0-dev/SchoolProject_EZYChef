@@ -1,42 +1,46 @@
 <?php
-//CHECKING DIRECT ACCESS FROM USERS
+//checking direct access through router
 if(!defined('AccessAllowance')){
   exit('Something went wrong! Life sucks, hah!');
 }
-
-/*
-CLASS PRODUCT
- */
 class products{
   private $id;
   private $description;
 
-  public __construct($id, $description){
+  /**/
+  public function __construct($id, $description){
     $this->id = $id;
     $this->description = $description;
   }
 
-  public function getId()
-  {
+  /**/
+  public function getId(){
       return $this->id;
   }
 
-  public function setId($id)
-  {
+  /**/
+  public function setId($id){
       $this->id = $id;
-      return $this;
   }
 
-  public function getDescription()
-  {
+  /**/
+  public function getDescription(){
       return $this->description;
   }
 
-  public function setDescription($description)
-  {
+  /**/
+  public function setDescription($description){
       $this->description = $description;
       return $this;
   }
+
+  /**/
+  function display(){
+    echo 'id = ' . $this->id . '<br>';
+    echo 'des = ' . $this->description . '<br>';
+  }
+
+  /**/
 
 }
 

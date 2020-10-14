@@ -1,23 +1,12 @@
 <?php
+define("AccessAllowance", true);
 echo 'test' . '<br>';
 
-
-require_once 'libs/customTime.php';
-
-$startMonth = '07';
-$startYear = '2019';
-$endMonth = '04';
-$endYear = '2020';
-
-$startTime = new customTime($startYear, $startMonth);
-$endTime = new customTime($endYear, $endMonth);
-
-$startTime->display();
-$endTime->display();
-
-echo $startTime->getMonth();
-
-
+require_once 'libs/database_connection.php';
+require_once 'models/products.php';
+require_once 'models/unit_sales.php';
+require_once 'models/sale_cost.php';
+require_once 'models/sale_cost_unit.php';
 
 
 

@@ -95,7 +95,7 @@ class importController extends mainController{
     if(!isset($_SESSION['docType'])){
       die('import/process - no doc type');
     }
-    else if(!isset($_SESSION['fileURL'])){http://ezychef/import/process
+    else if(!isset($_SESSION['fileURL'])){
       die('import/process - no file url');
     }
     //getting session
@@ -114,12 +114,11 @@ class importController extends mainController{
     unset($_SESSION['docType']);
     unset($_SESSION['startTime']);
     unset($_SESSION['endTime']);
-    unset($_SESSION['$fileURL']);
+    unset($_SESSION['fileURL']);
     */
     //vars
     $arr = array(); //return result
     $count = 0;
-
     //process
     if(file_exists($fileURL)){
       $file = fopen($fileURL, 'r');
@@ -157,7 +156,6 @@ class importController extends mainController{
       echo 'do not understand';
       //redirect to error page
     }
-
     //delete uploaded file
   }
 
