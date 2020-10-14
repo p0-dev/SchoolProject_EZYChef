@@ -10,6 +10,7 @@ define('SERVER', 'localhost');
 define('USERNAME', 'ezychef');
 define('PASSWORD', '123456');
 define('DATABASE', 'EzyChef');
+//define('SALE_UNIT_MODEL', );
 
 class databaseConnection{
 
@@ -56,7 +57,6 @@ class databaseConnection{
       if(false == $st){echo 'Executing fail!';}
       $result = $st->get_result();
       $st->close();
-      $this->mysqli->close();
       if(1 == $result->num_rows){
         //setting session
         $row = $result->fetch_assoc();
@@ -83,8 +83,7 @@ class databaseConnection{
             $result = $st->get_result();
             $result_row = $result->num_rows;
             $st->close();
-            $this->mysqli->close();
-            if(1 == $result_row){
+            if(0 != $result_row){
               return true;
             }
           }
@@ -103,7 +102,6 @@ class databaseConnection{
         if(false != $st){
           $st->execute();
           $st->close();
-          $this->mysqli->close();
           if(false != $st){
             return true;
           }
@@ -114,9 +112,22 @@ class databaseConnection{
   }
 
   /**/
-  function insertArrUnitSale($arrIn){
-    //require_once PRODUCT_MODEL;
-    echo 'inside insertArrUnitSale <br>';
+  function insertArrUnitSale($arr){
+    if(null != $this->mysqli && null != $arr && is_array($arr) && 0 < count($arr)){
+      $st = $this->mysqli->prepare('insert into sale_unit(product_id, record_time, value) values(?, ?, ?)');
+      if(false != $st){
+        $st->bind_param('sss', $id, $record, $value);
+        if(false != $st){
+          foreach ($arr as $key) {
+            $id = $key->getProductId();
+            $record = $key->getRecordTime();
+            $value = $key->getValue();
+            $st->execute();
+          }
+          return true;
+        }
+      }
+    }
     return false;
   }
 

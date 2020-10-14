@@ -57,5 +57,9 @@ class customTime{
   }
 
   /**/
+  function returnTimeToSQL(){
+    $tmp = $this->realYear . '-' . $this->realMonth . '-' . '01';
+    return $tmp;
+  }
 
 }

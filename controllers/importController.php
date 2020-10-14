@@ -14,13 +14,53 @@ if(!defined('AccessAllowance')){
 define('ID', 1);
 define('DES', 2);
 define('INDEX', 3);
-define('UNIT_SALE_MODEL', '../models/unit_sales.php');
+define('SALE_UNIT_MODEL', '../models/sale_unit.php');
 define('COST_SALE_MODEL', '../models/sale_cost.php');
 
 class importController extends mainController{
 
   /**/
-  public function findProductId($id){
+  //more validation for the file (cols and row)
+  private function processSaleUnit($fileURL, $startTime, $endTime){
+    $arr = array();
+    $index = 0;
+    if(null != $fileURL && null != $startTime && null != $endTime){
+      if(file_exists($fileURL)){
+        $file = fopen($fileURL, 'r');
+        if(false != $file){
+          require_once SALE_UNIT_MODEL;
+          while(!feof($file)){
+            $row = fgets($file);
+            $row = explode(';', $row);
+            if($this->findProductId($row[ID])){
+              for($tmp = new customTime($startTime->getYear(), $startTime->getMonth()), $i = INDEX; $tmp->getCompareTime() <= $endTime->getCompareTime(); $tmp->increaseMonth(1), $i++){
+                $obj = new sale_unit($row[ID], $tmp->returnTimeToSQL(), $row[$i]);
+                $arr[$index++] = $obj;
+              }
+            }
+          }
+          fclose($file);
+          $this->database->connect();
+          $test = $this->database->insertArrUnitSale($arr);
+          $this->database->close();
+          if(false != $test){
+            $this->view->redirect('dashboard', 'view');
+          }else{
+            die('processSaleUnit - import process - insert database fail');
+          }
+        }else{
+          die('processSaleUnit - import process - file can not be open');
+        }
+      }else{
+        die('processSaleUnit - import process - file null');
+      }
+    }else{
+      die('processSaleUnit - import process - input null');
+    }
+  }
+
+  /**/
+  private function findProductId($id){
     $this->database->connect();
     $result = $this->database->searchProductById($id);
     $this->database->close();
@@ -104,59 +144,21 @@ class importController extends mainController{
     $endTime = unserialize($_SESSION['endTime']);
     $fileURL = $_SESSION['fileURL'];
     //debug
-    //*
+    /*
     echo $docType . '<br>';
     echo $startTime->displayTime() . '<br>';
     echo $endTime->displayTime() . '<br>';
-    /*/
-    //destroy unnecessary session
-    /*
-    unset($_SESSION['docType']);
-    unset($_SESSION['startTime']);
-    unset($_SESSION['endTime']);
-    unset($_SESSION['fileURL']);
     */
-    //vars
-    $arr = array(); //return result
-    $count = 0;
-    //process
-    if(file_exists($fileURL)){
-      $file = fopen($fileURL, 'r');
-      if(false != $file){
-        while(!feof($file)){
-          $row = fgets($file);
-          $row = explode(';', $row);
-          if($this->findProductId($row[1])){
-            echo $row[1] . '-->' . $row[2] . '<br>';
-            for($tmp = new customTime($startTime->getYear(), $startTime->getMonth()), $index = INDEX; $tmp->getCompareTime() <= $endTime->getCompareTime(); $tmp->increaseMonth(1), $index++){
-              echo 'time = ' . $tmp->displayTime() . '-->' . $row[$index] . '<br>';
-            }
-          }
-        }
-        fclose($file);
-      }
-      else{
-        die('can not open file! - import process!');
-        //redirect to error page
-      }
+    //destroy unnecessary session
+    //unset($_SESSION['docType']);
+    //unset($_SESSION['startTime']);
+    //unset($_SESSION['endTime']);
+    //unset($_SESSION['fileURL']);
+    switch ($docType) {
+      case 'sale_unit': $this->processSaleUnit($fileURL, $startTime, $endTime); break;
+      case 'sale_cost': break;
+      default: die('proces import - wrong doc type'); break;
     }
-    else{
-      die('file is not existed!');
-      //redirect to error page
-    }
-
-    //import to database
-    if('sale_unit' == $docType){
-      echo 'process sale unit';
-    }
-    else if('sale_cost' == $docType){
-      echo 'process sale cost';
-    }
-    else{
-      echo 'do not understand';
-      //redirect to error page
-    }
-    //delete uploaded file
   }
 
   /**/

@@ -1,0 +1,185 @@
+;;;;;;;;;;;;;;;
+;EZY CHEF PTY LTD;;;;;;;;;;;;;;
+;1/140, Northcorp Blvd;;;;;;;;;;;;;;
+;Broadmeadows;;;;;;;;;;;;;;
+;VIC - 3047;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+;Analyse Sales [Item Multi-Period];;;;;;;;;;;;;;
+;July 2017 To June 2018;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+;Item No.;Item Name;July;August;September;October;November;December;January;February;March;April;May;June;Total
+;;;;;;;;;;;;;;;
+;Adjustment / Rebate;Adjustment Note or Rebate;-9;-47;0;-5;-4;-461;2;-5;-1;-2;1;0;-531
+;CPFBF-Boysenberry200g;Box 12 x 200g Fresh Berry Farm;0;0;0;0;0;0;0;0;0;0;0;264;264
+;CPFBF-Raspberry200g;Box 12 x 200g Fresh Berry Farm;0;0;0;0;0;0;0;0;0;0;0;288;288
+;CPFBF-SummerBerries200g;Box 12 x 200g Fresh Berry Farm;0;0;0;0;0;0;0;0;0;0;0;456;456
+;CPLPG-Aldicut&wrap;Crate 13kg Cut & Wrap Pumpkin;0;0;0;125;2794;3110;3179;5387;6569;5542;6229;0;32935
+;CPLPG-BNut700Box;Box 8x700g Butternut Diced Chi;0;0;0;42;28;0;0;0;0;0;0;0;70
+;CPLPG-BNutColesC&W;Crate 14kg Cut & S Wrap Butter;0;0;0;0;0;0;0;0;0;135;399;353;887
+;CPLPG-Kent700Box;Box 8x700g Kent Pieces Chilled;0;0;0;54;31;0;0;0;0;67;0;0;152
+;CPLPG-KentColesC&W;Crate 14kg Cut & S Wrap Kent;0;0;0;0;0;0;0;0;0;196;4;6.5;206.5
+;CPPowd-Prune;Cana Corp FD Prune Powder;0;0;0;0;0;0;0;0;0;126;0;0;126
+;Debtor-Offset;CP Debtor Offset;0;0;0;-192;-118;0;0;0;0;-67;0;0;-377
+;DisebProcessing;10kg Diseb Processed Spinach;0;0;0;0;0;0;0;0;0;0;179;130;309
+;Ezy0037r;15kg (20Ltr) Aseptic Bag;0;0;2;0;0;0;0;0;0;0;0;0;2
+;Ezy0068-BNutC&W;CP Label Butternut C&W;0;0;0;0;0;0;0;0;0;0;600;150;750
+;Ezy022;Box 6x2kg Pumpkin Puree Frozen;90;58;66;67;70.33;64;64;52;65.33;102;59;40;797.66
+;Ezy022C;Box 6x2kg PumpkinPuree Chilled;0;0;0;0;3;3;0;0;0;0;0;0;6
+;Ezy030C;Box 2x6kg PumpkinPuree Chilled;0;0;0;0;6;0;0;0;0;0;0;0;6
+;Ezy031;Box 15kg Butternut PumpkinPure;11;0;0;0;0;0;0;0;0;0;0;0;11
+;Ezy031-ORG;Box 15kg Organic Pumpkin Puree;0;238;55;192;256;0;6;64;80;80;272;256;1499
+;Ezy031-Tempered;Box 15kg Butternut Pumpkin Pur;420;65;0;0;0;105;104;105;105;256;267;116;1543
+;Ezy041;Box 6x2kg Potato Mash Frozen;16;12;18;37;13;7;6;12;82.16;73;27;83;386.16
+;Ezy041-1kg x 12;Box 12x1kg Potato Mash Seasone;129;212;153;135;232;152;161;80;230;125;80;64;1753
+;Ezy041C-LS;Box 2x6kg Low Sodium Potato Ma;366;286;0;343;341;0;185;161;688;230;398;141;3139
+;Ezy041C-S1;Box 6x2kg Potato Mash with Cre;95;105;70.17;80;129;107;140;60;62;47;104;78;1077.17
+;Ezy041C-S2;Box 6x2kg Potato Mash Sea Froz;14;6;0;14.5;0;12;0;6;8;6;7;7;80.5
+;Ezy041F-CP;Box 6x2kg Sea Potato Glendale;0;0;0;0;0;0;0;0;0;384;128;0;512
+;Ezy041S-500;Box 12 x 500gm Potato Mash wit;52;65;60;54;83;48;51;46;51;52;65;52;679
+;Ezy042C-S1;Box 2x6kg Potato Mash & Cream;8;10;14;10;12;12;12;10;14;4;10;8;124
+;Ezy043-ORG;Box 15kg Organic Sweet Potato;0;34;37;0;0;0;2;0;67;67;131;64;402
+;Ezy044;Box 6x2kg Sweet Potato Frozen;2;3;5;0;0.33;0;0;6;26.33;1;1;0;44.66
+;Ezy046;Whole Peeled Chat Potatoes;650;630;560;630;630;570;560;560;610;670;730;700;7500
+;Ezy049;Box 6x2kg Yam Puree Frozen;0;0;0;1;0;0;0;0;0;0;0;0;1
+;Ezy051;Box 6x2kg Broccoli Mash Frozen;16;11;4;9;4;6;8;7;10.33;35;1;2;113.33
+;Ezy051-15kg;Box 15kg Broccoli Mash Frozen;0;54;0;54;0;128;108;107;13;12;0;76;552
+;Ezy053;Box 6x2kg Onion Puree Frozen;40;0;0;25;0;52;0;0;0;20;6;36;179
+;Ezy055;Box 6x2kg Green Pea Mash Blend;1;0;0;0;0;0;0;0;0;0;0;0;1
+;Ezy056;Box 6x2kg Green 100% Pea Mash;0;0;0;0;0.33;0;0;0;0;0;0.17;0;0.5
+;Ezy056-15kg;Box 15kg 100% Green Pea Mash;0;0;0;0;0;0;0;23;13;27;0;0;63
+;Ezy059-15kg;Box 15kg Leek Puree Frozen;64;64;0;59;105;0;0;0;0;64;0;64;420
+;Ezy061;Box 6x2kg Carrot Puree Frozen;6;5;5;5;8.33;6;10;4;8.33;6;14.17;9;86.83
+;Ezy063-ORG;Box 15kg Organic Carrot Puree;0;0;0;0;64;0;2;0;0;128;128;64;386
+;Ezy064;Box 6x2kg Cauliflower Puree;6;2;0;0.14;0;0;0.17;0;2;1;0.33;0.33;11.97
+;Ezy064-15;Box 15kg Cauliflower Puree Fro;0;4;0;0;0;2;0;1;0;1;3;5;16
+;Ezy064-Chunky;Box 2x6kg Cauliflower Chunky F;0;0;0;0;0;0;0;0;3;0.33;0;0;3.33
+;Ezy067;Box 6x2kg Zucchini Puree Froze;0;0;0;0;0.13;0;0;0;0;0;0;0;0.13
+;Ezy069;Box 6x2kg Beetroot Puree Froze;9;5;9;4;10;3;0;13;7.17;1;0;0;61.17
+;Ezy071;Box 15kg Beetroot Puree Frozen;0;0;0;0;0;0;0;0;0;5;0;9;14
+;Ezy074;Box 6x2kg Corn Puree Frozen;0;0;0;0;0;0;0;0;0.17;0;0;0;0.17
+;Ezy077;Box 15kg Spinach Puree Frozen;0;0;3;0;256.33;0;0;26;27;62;0;0;374.33
+;Ezy078;Box 15kg Sweet Corn Puree Froz;0;0;0;0;0;0;0;0;0;3;0;0;3
+;Ezy079;Box 15kg White Bean Puree Froz;0;0;0;0;0.33;0;0;0;0;0;0;0;0.33
+;Ezy081;Box 15kg Cabbage Puree Frozen;64;64;0;0;104;0;0;0;0;64;0;0;296
+;Ezy083;Box 15kg Kale Puree Frozen;0;0;0;0;0;27;54;54;3;0;0;7;145
+;Ezy084;Box 15kg Silverbeet Puree Froz;0;0;0;0;0;0;0;0;2;0;0;7;9
+;Ezy087-P&S;Box 10kg Frozen Prune Pulp;0;0;0;0;0;0;9;0;0;0;0;0;9
+;Ezy089;15kg Plum - Prune Puree Frozen;0;0;0;0;0;0;0;0;0;1;0;0;1
+;Ezy092;20kg Mango Puree Aseptic;0;0;0;0;0;0;0;15;0;0;0;0;15
+;Ezy0932;Passionfruit Pulp Seedless;0;0;0;0;0;0;0;0;80;0;0;0;80
+;Ezy094-15kg;Box 15kg Strawberry Puree;0;0;0;0;0;0;0;0;0;8;0;0;8
+;Ezy097Puree;Blueberry Puree 12.7kg;0;0;0;0;0;0;0;0;5;0;0;0;5
+;Ezy099;Box 15kg Quince Puree Frozen;0;0;0;0;0;0;0;0;0;0;1;0;1
+;Ezy100;Raw Pumpkin Peeled Pieces;1795;1845;1620;2050;2750;1905;2110;1780;1410;1155;1495;1315;21230
+;Ezy100-Base;Raw Pumpkin Peeled Base;750;1150;1000;650;700;600;725;600;600;825;1000;1060;9660
+;Ezy100B-Diced10;Raw Butternut Pumpkin Diced(10;0;80;0;0;0;0;0;0;0;0;0;0;80
+;Ezy100B-Diced20;Raw Butternut Pumpkin Diced (2;80;0;30;80;0;80;0;80;80;0;80;0;510
+;Ezy100-small;Raw Pumpkin Peeled Pieces smal;2370;2805;2250;2715;2695;2630;1900;2645;2275;2300;1510;875;26970
+;Ezy150;Chopped Parsley Frozen;0;0;0;0;0;0;10;0;0;0;0;0;10
+;Ezy300;Box 6x2kg Strawberry Topping;3;1;1;2;2;0;1;0;0;0;0;0;10
+;Ezy300-2x6kg;Box 2x6kg Strawberry Topping;0;0;0;0;4;2;2;2;2;2;4;2;20
+;Ezy300-Chunky LB;Box 6x2kg Chunky Strawberry LB;9;11;14;15;10;5;9;10;7;11;16;11;128
+;Ezy301;Box 6x2kg Passionfruit Topping;0;0;-2;1;0;0;2;0;0;0;0;0;1
+;Ezy301-2x6kg;Box 2x6kg Passionfruit Topping;0;2;0;8;6;1;12;5;11;0;0;0;45
+;Ezy301-Chunky LB;Box 6x2kg Passionfruit LB;2;1;5;2;1;4;3;2;2;6;11;1;40
+;Ezy302;Box 6x2kg Mixed Berry Topping;0;0;0;2;1;0;0;1;0;2;1;1;8
+;Ezy302-2x6kg;Box 2x6kg Mixed Berry Topping;10;8;21;46;36;30;33;55;14;16;49;20;338
+;Ezy302-Chunky LB;Box 6x2kg Chunky Mixed Berry L;8;8;1;2;5;7;4;0;0;4;11;8;58
+;Ezy303;Box 6x2kg Mango Topping;4;0;0;0;0;0;1;0;0;0;0;0;5
+;Ezy303-2x6kg;Box 2x6kg Mango Topping;22;8;23;51;34;23;27;70;12;16;54.5;23;363.5
+;Ezy303-LB;Box 6x2kg Mango Topping Low Br;6;6;5;5;6;10;12;5.17;3;6;8;6;78.17
+;Ezy305;Box 6x2kg Seedless Passionfrui;1;0;0;0;1;0;1;0;0;0;0;0;3
+;Ezy305-2x6kg;Box 2x6kg Seedless Passionfrui;12;0;17;36;27;25;11;20;11;16;38;12;225
+;Ezy307;Box 6x2kg Raspberry Topping Ch;2;0;0;1;1;0;3;0;0;0;1;0;8
+;Ezy307-2x6kg;Box 2x6kg Raspberry Topping Ch;19;6;16;20;56;14;11;15;11;18;38;11;235
+;Ezy308;Box 6x2kg Cranberry Topping Ch;0;0;0;0;1;0;0;0;0;0;0;0;1
+;Ezy308-2x6kg;Box 2x6kg Cranberry Topping Ch;10;0;7;31;5;20;15;5;10;5;24;10;142
+;Ezy309;Box 6x2kg Green Tea Topping Ch;0;1;0;0;1;0;1;0;0;0;0;0;3
+;Ezy309-2x6kg;Box 2x6kg Green Tea Topping Ch;10;8;6;20;20;5;14;15;10;6;24;10;148
+;Ezy318;Box 6x2kg HP Strawberry Toppin;1;2;2;1;0;0;0;0;0;0;0;0;6
+;Ezy318-2x6kg;Box 2x6kg HP Strawberry Toppin;87;28;50;49;0;0;0;0;0;0;0;0;214
+;Ezy321;Box 6x2kg HP Vanilla Topping C;1;3;1;1;0;0;0;0;0;0;0;0;6
+;Ezy321-2x6kg;Box 2x6kg HP Vanilla Topping C;79;31;56;54;0;0;0;0;0;0;0;0;220
+;Ezy322-2x6kg;Box 2 x 6kg Apple & Rhubarb To;0;0;0;0;0;0;10;0;10;0;0;0;20
+;Ezy351;Box 6x1.25kg Passionfruit Coul;33;56;30;66;54;111;49;90;70;68;38;34;699
+;Ezy352;Box 6x1.25kg Raspberry Coulis;34;55;18;56;35;83;35;44;48;48;45;24;525
+;Ezy353;Box 6x1.25kg Blackberry Coulis;3;4;6;15;5;10;1;2;3;17;5;0;71
+;Ezy354;Box 6x1.25kg Mango Coulis;18;13;22;35;21;43;37;52;51;46;13;12;363
+;Ezy356;Box 6 x 1.25kg Plum Coulis;1;0;1;0;0;2;0;0;0;0;0;0;4
+;Ezy400-560g;Box 11 x 560g Tub Napoletana;0;0;0;0;32;25;44;32;30;38;29;30;260
+;Ezy400-6kg;Box 2 x 6kg Napoletana Sauce C;0;0;0;0;10;39;77;46;53;49;52;51;377
+;Ezy500;Box Soup Butternut Pumpkin Fro;17;23;21;16;18;12;14;13;12;13;11;2;172
+;Ezy545;Box Soup Potato & Leek Frozen;24;29;19;14;18;14;15;14;14;12;15;9;197
+;Ezy550;Box Soup Vegetable Frozen;0;0;0;0;0;0;0;0;0.16;0;0;0;0.16
+;Ezy555;Box Soup Tomato & Basil Frozen;8;9;6;0;0;2;0;0;1.16;0;5;8.17;39.33
+;Ezy560;Box Soup Lentil & Veg Frozen;7;8;4;0;0;2;0;0;0.16;1;5;3;30.16
+;Ezy565;Box Soup Potato & Celery Froze;0;2;0;0;0;0;0;0;0;0;0;0;2
+;Ezy575;Box Soup Mushroom Frozen;7;7;6;0;0;0;0;0;0;0;4;11;35
+;Ezy700;Box 6x2kg EC Pumpkin Soup (FR);35;40;20;16;20;12;18;16;15;21;14;0;227
+;Ezy701;Box 6x2kg EC Sp Vegetable Soup;17;20;13;16;17;14;18;13;13;18;10;0;169
+;Ezy702;Box 6x2kg EC Chic & Veg Soup;16;20;14;16;17;12;17;14;12;17;12;0;167
+;Ezy703;Box 6x2kg EC Scotch Broth Soup;12;15;13;12;15;9;14;11;12;11;7;0;131
+;Ezy704;Box 6x2kg EC Minestrone Soup;17;26;13;16;16;14;14;12;13;13;8;0;162
+;Ezy705;Box 6x2kg EC Broccoli Soup(FR);15;13;13;9;9;6;12;9;9;10;7;0;112
+;Ezy706;Box 6x2kg EC Chic & Corn Soup;12;20;15;16;17;12;15;14;12;12;8;0;153
+;Ezy710;Box 6x2kg EC Sweet Potato Soup;3;3;12;12;16;11;15;12;13;10;10;0;117
+;Ezy711;Box 6x2kg EC Mix Veg Soup (FR);0;0;15;16;14;8;14;12;12;4;8;0;103
+;EzyAsep-Apple15;15kg Aseptic Apple Puree R;0;0;0;0;0;0;6;7;0;33;0;0;46
+;EzyAsep-Apple2;Box 6x2kg Aseptic Apple Puree;0;0;0;0;0;0;0;0;0.17;0;0.17;0;0.33
+;EzyAsep-Apple200;200kg Aseptic Apple Puree;0;0;0;0;0;0;0;0;76;95;1;16;188
+;EzyAsep-Carrot15;15kg Aseptic Carrot Puree;0;0;3;0;2;0;0;39;0;1;0;10;55
+;EzyAsep-Carrot200;200kg Aseptic Carrot Puree;4;0;0;0;4;0;4;0;0;33;8;8;61
+;EzyAsep-Celery200;200kg Aseptic Celery Puree;0;5;0;0;8;0;0;0;0;0;0;0;13
+;EzyAsep-Cucumber15A;15kg Aseptic Cucumber Aci;0;0;0;0;0;0;0;0;4;0;0;0;4
+;EzyAsep-Cucumber200A;200kg Aseptic Cucumber Pur;0;0;0;0;0;0;0;0;9;0;0;0;9
+;EzyAsep-JuiceBeetroot200;200kg Aseptic Juice Beetroot;0;0;0;0;0;8;0;15;50;0;0;0;73
+;EzyAsep-JuiceCarrot1000;1000kg Aseptic Juice Carrot;0;0;0;0;5;4;3;5;6;0;0;0;23
+;EzyAsep-JuiceCarrot15;15kg Aseptic Juice Carrot;0;0;0;8;0;0;0;0;0;0;0;0;8
+;EzyAsep-JuiceCarrot200;200kg Aseptic Juice Carrot;0;0;0;10;52;32;36;5;20;0;0;0;155
+;EzyAsep-KaleA200;200kg Aseptic Kale A 1.6mmPure;0;0;0;0;0;0;0;0;4;2;12;0;18
+;EzyAsep-ORGApple200;200kg Aseptic ORGANIC Apple Pu;0;0;0;0;0;0;0;0;7;0;0;0;7
+;EzyAsep-ORGBeetroot15;15kg Aseptic ORGANIC Beetroot;0;0;0;0;0;42;0;0;0;0;0;0;42
+;EzyAsep-ORGCarrot200;200kg Aseptic ORGANIC Carrot;0;0;0;0;0;72;0;0;0;0;0;0;72
+;EzyAsep-ORGJuiceCarrot200;200kg Drum ORG Juice Carrot A;0;0;0;0;0;0;0;0;23;0;0;0;23
+;EzyAsep-ORGJuicePear200;200kg Drum ORGANIC Juice Pear;0;0;0;0;0;0;0;0;0;0;0;36;36
+;EzyAsep-ORGPear200;200kg Aseptic ORGANIC Pear Pur;0;0;0;0;0;0;0;0;12;0;0;0;12
+;EzyAsep-ORGPumpkin200;200kg Aseptic ORGANIC Pumpkin;0;0;0;0;0;0;0;0;0;64;0;0;64
+;EzyAsep-ORGSweetPotato200;200kg Aseptic ORGANIC Sweet Po;0;0;0;0;0;0;0;0;0;0;40;0;40
+;EzyAsep-Parsnip2;Box 6x2kg Aseptic Parsnip Pure;0;0;0;0;0;0;0;0;0;0;0.17;0;0.17
+;EzyAsep-Parsnip200;200kg Aseptic Parsnip Puree;32;36;0;32;32;0;0;36;0;4;20;24;216
+;EzyAsep-Pear2;Box 6x2kg Aseptic Pear Puree;0;0;0;0;0;0;0;0;0.17;0;0.17;0;0.33
+;EzyAsep-Pear200;200kg Aseptic Pear Puree Refr;0;0;0;0;0;0;0;0;12;20;-6;14;40
+;EzyAsep-Plum200;200kg Aseptic Plum Puree;0;12;0;0;0;0;0;0;12;0;0;0;24
+;EzyAsep-Pumpkin15;15kg Aseptic B Pumpkin Puree;211;153;199;200;385;81;130;178;267;257;373;411;2845
+;EzyAsep-Pumpkin2;Box 6x2kg Aseptic B Pumpkin Pu;3;4;3;1;0;0;10;0;0;5;6.17;0;32.17
+;EzyAsep-Pumpkin200;200kg Aseptic B Pumpkin Puree;260;132;100;88;72;48;60;108;100;136;312;284;1700
+;EzyAsep-SpinachA200;200kg Aseptic Spinach A Puree;0;0;0;0;0;0;0;0;12;0;0;0;12
+;EzyAsep-Strawberry15;15kg Aseptic Strawberry Puree;0;0;0;0;0;0;0;0;11;0;0;0;11
+;EzyAsep-Strawberry2;Box 6x2kg Aseptic Strawberry P;0;0;0;0;0;0;0;0;0.17;0;0;0;0.17
+;EzyAsep-SweetPotato15;15kg Aseptic Sweet Potato Pure;0;53;0;8;2;0;2;58;17;126;152;98;516
+;EzyAsep-SweetPotato2;Box 6x2kg Aseptic Sweet Potato;0;0;0;0;0;0;0;0;0;0;0.33;0;0.33
+;EzyAsep-SweetPotato200;200kg Aseptic Sweet Potato Mas;8;0;0;0;0;0;0;0;0;0;0;0;8
+;EzyAsep-SwtPotBlend15;15kg Aseptic Sweet Pot Blend;0;0;0;0;0;0;0;0;34;100;0;0;134
+;EzyAsep-ZucchiniPulp200;200kg Aseptic Zucchini Pulp1.6;0;0;0;0;0;0;0;0;0;1;0;0;1
+;Ezy-NBBeetroot;Box 6x300g NB Beetroot Frozen;0;30;10;0;0;9;4.33;6.17;22;13;13;24;131.5
+;Ezy-NBBroccoli;Box 6x300g NB Broccoli Frozen;0;30;8;0;0;18;4.33;16;12;18;18;24;148.33
+;Ezy-NBCapsicum;Box 6x300g NB Capsicum Frozen;0;15;5;0;0;0;4.17;6.17;5;2;11;0;48.33
+;Ezy-NBCarrot;Box 6x300g NB Carrot Frozen;0;30;10;0;0;18;4.17;6.17;22;10;14;8;122.33
+;Ezy-NBCauliflower;Box 6x300g NB Cauliflower Froz;0;21;7;0;0;9;4.17;6;17;4;14;10;92.17
+;Ezy-NBGreenPea;Box 6x300g NB Green Pea Frozen;0;24;8;0;18;0;3.33;6;16;14;13;18;120.33
+;Ezy-NBParsnip;Box 6x300g NB Parsnip Frozen;0;15;3;0;0;4;4.17;6;11;2;8;3;56.17
+;Ezy-NBPumpkin;Box 6x300g NB Pumpkin Frozen;0;30;12;0;18;14;4.33;16.17;25;16;22;24;181.5
+;Ezy-NBStarter;Box 8x600g NB Starter Pack Fro;0;30;8;0;36;7;58.38;0.13;40;37;26;69;311.5
+;Ezy-NBSweetPotato;Box 6x300g NB Sweet Potato Fro;0;30;8;0;18;5;4.33;6.17;22;14;18;24;149.5
+;Ezy-NBZucchini;Box 6x300g NB Zucchini Frozen;0;15;5;0;0;5;6.17;6;11;7;16;10;81.17
+;EzyNourish-Fruits15;Box 15kg Nourishing Fruits;0;0;0;0;0;0;0;14;0;0;0;0;14
+;EzyNourish-Fruits200;200kg Drum Nourishing Fruits;0;0;0;0;0;0;0;1;0;0;0;0;1
+;EzyNourish-Greens15;Box 15kg Nourishing Greens Fro;0;0;0;0;0;0;0;18;0;0;0;0;18
+;EzyNourish-Greens200;200kg Drum Nourishing Greens;0;0;0;0;0;0;0;1;0;0;0;0;1
+;EzyNourish-Reds15;Box 15kg Nourishing Reds Froze;0;0;0;0;0;0;0;14;0;0;0;0;14
+;EzyNourish-Reds200;200kg Drum Nourishing Reds;0;0;0;0;0;0;0;1;0;0;0;0;1
+;EzyProcessing;Processing Cost;0;0;0;200;0;0;0;0;0;3760;91;0;4051
+;EzySAMPLE-Exp;Export;0;0;0;0;0;0;0;84;1;0;0;0;85
+;EzySamples;Samples;0;0;0;99;3;0;139.5;583.9;541;160;1;65.5;1592.9
+;ServiceCharge-AldiPacking;Charges related to post produc;0;0;0;0;1.4;0;0;0;0;0;0;0;1.4
+;;Total:;8128;8918;6834.17;8562.64;12411.53;10131;10481.55;13759.02;15113.78;18262.33;15699.16;8265.5;136566.68
