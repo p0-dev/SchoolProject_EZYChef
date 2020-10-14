@@ -60,6 +60,49 @@ class importController extends mainController{
   }
 
   /**/
+  //more validation for the file (cols and row)
+  private function processSaleCost($fileURL, $startTime, $endTime){
+    $arr = array();
+    $index = 0;
+    if(null != $fileURL && null != $startTime && null != $endTime){
+      if(file_exists($fileURL)){
+        $file = fopen($fileURL, 'r');
+        if(false != $file){
+          require_once COST_SALE_MODEL;
+          while(!feof($file)){
+            $row = fgets($file);
+            $row = explode(';', $row);
+            if($this->findProductId($row[ID])){
+              for($tmp = new customTime($startTime->getYear(), $startTime->getMonth()), $i = INDEX; $tmp->getCompareTime() <= $endTime->getCompareTime(); $tmp->increaseMonth(1), $i++){
+                if(0 == floatval($row[$i])){
+                  $row[$i] = substr($row[$i], 1);
+                }
+                $obj = new sale_cost($row[ID], $tmp->returnTimeToSQL(), $row[$i]);
+                $arr[$index++] = $obj;
+              }
+            }
+          }
+          fclose($file);
+          $this->database->connect();
+          $test = $this->database->insertArrCostSale($arr);
+          $this->database->close();
+          if(false != $test){
+            $this->view->redirect('dashboard', 'view');
+          }else{
+            die('processSaleCost - import process - insert database fail');
+          }
+        }else{
+          die('processSaleCost - import process - file can not be open');
+        }
+      }else{
+        die('processSaleCost - import process - file null');
+      }
+    }else{
+      die('processSaleCost - import process - input null');
+    }
+  }
+
+  /**/
   private function findProductId($id){
     $this->database->connect();
     $result = $this->database->searchProductById($id);
@@ -156,7 +199,7 @@ class importController extends mainController{
     //unset($_SESSION['fileURL']);
     switch ($docType) {
       case 'sale_unit': $this->processSaleUnit($fileURL, $startTime, $endTime); break;
-      case 'sale_cost': break;
+      case 'sale_cost': $this->processSaleCost($fileURL, $startTime, $endTime); break;
       default: die('proces import - wrong doc type'); break;
     }
   }

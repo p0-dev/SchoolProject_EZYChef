@@ -132,5 +132,23 @@ class databaseConnection{
   }
 
   /**/
+  function insertArrCostSale($arr){
+    if(null != $this->mysqli && null != $arr && is_array($arr) && 0 < count($arr)){
+      $st = $this->mysqli->prepare('insert into sale_cost(product_id, record_time, value) values(?, ?, ?)');
+      if(false != $st){
+        $st->bind_param('sss', $id, $record, $value);
+        if(false != $st){
+          foreach ($arr as $key) {
+            $id = $key->getProductId();
+            $record = $key->getRecordTime();
+            $value = $key->getValue();
+            $st->execute();
+          }
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 
 }
