@@ -211,5 +211,41 @@ class databaseConnection{
   }
 
   /**/
+  function getProfitData(){
+    if(null != $this->mysqli){
+      $st = $this->mysqli->prepare('select * from profit');
+      if(false != $st){
+        $st->execute();
+        if(false != $st){
+          $result = $st->get_result();
+          $result_row = $result->num_rows;
+          $st->close();
+          if(0 < $result_row){
+            $arr = array();
+            $index = 0;
+            while($row = $result->fetch_assoc()){
+              $id = $row['product_id'];
+              $record = $row['record_time'];
+              $value = $row['value'];
+              $des = $row['description'];
+              $obj = new profit($id, $record, $value);
+              $obj->setDescription($des);
+              $arr[$index++] = $obj;
+            }
+            return $arr;
+          }else{
+            die('getProfitData - result not found!');
+          }
+        }else{
+          die('getProfitData - executing fail!');
+        }
+      }else{
+        die('getProfitData - prepared statement fail!');
+      }
+    }else{
+      die('getProfitData - null database connection');
+    }
+    return false;
+  }
 
 }

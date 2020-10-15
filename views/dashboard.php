@@ -9,6 +9,9 @@ if(null == $username || null == $permission){
   exit('Something went wrong! Life sucks, hah!');
 }
 
+//get session
+$obj = ($_SESSION['profitTable']);
+
 //check direct access through router
 if(!defined('AccessAllowance')){
   exit('Something went wrong! Life sucks, hah!');
@@ -60,6 +63,35 @@ if(!defined('AccessAllowance')){
 
       <!--main-->
       <div class="main">
+
+        <!--table for profit-->
+        <div class="profit_table_wrapper">
+          <table class="profit_table">
+            <tr>
+              <th>ID</th>
+              <th>Timestamp</th>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+            <?php
+              foreach ($obj as $key) {
+                ?>
+                <tr>
+                  <td><?php echo $key->getProductId(); ?></td>
+                  <td><?php echo $key->getRecordTime(); ?></td>
+                  <td><?php echo $key->getValue(); ?></td>
+                  <td><?php echo $key->getDescription(); ?></td>
+                </tr>
+                <?php
+              }
+             ?>
+          </table>
+        </div>
+
+        <!--table for unit profit-->
+        <div class="unit_profit">
+
+        </div>
 
       </div>
 

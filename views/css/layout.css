@@ -92,19 +92,38 @@ div.navigation > ul > p {
   margin: auto;
   padding: 10px;
 }
+
 div.main{
   padding: 10px;
   float: left;
   overflow: auto;
   background-color: ;
   width: inherit;
+  max-height: 666px;
 }
+
 div.footer{
   border-width: 1px;
   padding: 0px;
   margin: 10px;
   text-align: center;
 }
+
+/*table of profit*/
+table.profit_table{
+  border-collapse: collapse;
+}
+
+table.profit_table tr th{
+  border-style: solid;
+  border-width: thin;
+}
+
+table.profit_table td{
+  border-style: solid;
+  border-width: thin;
+}
+
 
 /*RESPONSIVE CSS*/
 @media screen and (max-width:600px) {
