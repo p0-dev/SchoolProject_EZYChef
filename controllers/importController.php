@@ -75,9 +75,9 @@ class importController extends mainController{
             $row = explode(';', $row);
             if($this->findProductId($row[ID])){
               for($tmp = new customTime($startTime->getYear(), $startTime->getMonth()), $i = INDEX; $tmp->getCompareTime() <= $endTime->getCompareTime(); $tmp->increaseMonth(1), $i++){
-                if(0 == floatval($row[$i])){
-                  $row[$i] = substr($row[$i], 1);
-                }
+                $row[$i] = str_replace("$",'',$row[$i]);
+                $row[$i] = str_replace(",",'',$row[$i]);
+                $row[$i] = floatval($row[$i]);
                 $obj = new sale_cost($row[ID], $tmp->returnTimeToSQL(), $row[$i]);
                 $arr[$index++] = $obj;
               }
