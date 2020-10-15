@@ -113,7 +113,7 @@ class databaseConnection{
   /**/
   function insertArrUnitSale($arr){
     if(null != $this->mysqli && null != $arr && is_array($arr) && 0 < count($arr)){
-      $st = $this->mysqli->prepare('insert into sale_unit(product_id, record_time, value) values(?, ?, ?)');
+      $st = $this->mysqli->prepare('insert ignore into sale_unit(product_id, record_time, value) values(?, ?, ?)');
       if(false != $st){
         $st->bind_param('sss', $id, $record, $value);
         if(false != $st){
@@ -133,7 +133,7 @@ class databaseConnection{
   /**/
   function insertArrCostSale($arr){
     if(null != $this->mysqli && null != $arr && is_array($arr) && 0 < count($arr)){
-      $st = $this->mysqli->prepare('insert into sale_cost(product_id, record_time, value) values(?, ?, ?)');
+      $st = $this->mysqli->prepare('insert ignore into sale_cost(product_id, record_time, value) values(?, ?, ?)');
       if(false != $st){
         $st->bind_param('sss', $id, $record, $value);
         if(false != $st){
@@ -153,7 +153,7 @@ class databaseConnection{
   /**/
   function insertArrSale($arr){
     if(null != $this->mysqli && null != $arr && is_array($arr) && 0 < count($arr)){
-      $st = $this->mysqli->prepare('insert into sale(product_id, record_time, value) values(?, ?, ?)');
+      $st = $this->mysqli->prepare('insert ignore into sale(product_id, record_time, value) values(?, ?, ?)');
       if(false != $st){
         $st->bind_param('sss', $id, $record, $value);
         if(false != $st){
@@ -166,6 +166,46 @@ class databaseConnection{
           return true;
         }
       }
+    }
+    return false;
+  }
+
+  /**/
+  function insertProfit(){
+    if(null != $this->mysqli){
+      $st = $this->mysqli->prepare('insert ignore into profit(product_id, record_time, value) select s.product_id, s.record_time, (s.value - sc.value) from sale s, sale_cost sc where s.product_id = sc.product_id && s.record_time = sc.record_time && s.value > 0 && sc.value >= 0');
+      if(false != $st){
+        $st->execute();
+        if(false != $st){
+          return true;
+        }else{
+          die('insertProfit - databaseConnection - executing errror!');
+        }
+      }else{
+        die('insertProfit - databaseConnection - can not prepared the statement!');
+      }
+    }else{
+      die('insertProfit - databaseConnection - database connection is null!');
+    }
+    return false;
+  }
+
+  /**/
+  function insertUnitProfit(){
+    if(null != $this->mysqli){
+      $st = $this->mysqli->prepare('insert ignore into unit_profit(product_id, record_time, value) select p.product_id, p.record_time, (p.value / su.value) from profit p, sale_unit su where p.product_id = su.product_id && p.record_time = su.record_time && su.value > 0');
+      if(false != $st){
+        $st->execute();
+        if(false != $st){
+          return true;
+        }else{
+          die('insertUnitProfit - databaseConnection - executing errror!');
+        }
+      }else{
+        die('insertUnitProfit - databaseConnection - can not prepared the statement!');
+      }
+    }else{
+      die('insertUnitProfit - databaseConnection - database connection is null!');
     }
     return false;
   }

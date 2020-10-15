@@ -4,7 +4,8 @@ var submitElement = document.getElementById('importForm');
 var errorMessageElement = document.getElementById('errorMessage');
 var now = new Date();
 var defaultDate = new Date('1970-01-01');
-var nowDateStr = now.getFullYear() + '-' + (now.getMonth()+1);
+var nowDateStr1 = (now.getFullYear()-1) + '-' + '07';
+var nowDateStr2 = now.getFullYear() + '-' + '06';
 
 function hideErrorMessage(){
   errorMessageElement.hidden = true;
@@ -12,8 +13,8 @@ function hideErrorMessage(){
 function showErrMes(){
   errorMessageElement.hidden = false;
   errorMessageElement.innerHTML = 'Time is wrong! Go fuck yourself!';
-  startTimeElement.value = nowDateStr;
-  endTimeElement.value = nowDateStr;
+  startTimeElement.value = nowDateStr1;
+  endTimeElement.value = nowDateStr2;
 }
 function validation(){
   var startTime = startTimeElement.value.split('-');
@@ -34,8 +35,8 @@ function init(){
   var nowYear = now.getFullYear();
   var nowMonth = now.getMonth();
   nowMonth+=1;
-  startTimeElement.value = nowDateStr;
-  endTimeElement.value = nowDateStr;
+  startTimeElement.value = nowDateStr1;
+  endTimeElement.value = nowDateStr2;
   submitElement.onsubmit = validation;
   startTimeElement.onclick = hideErrorMessage;
   endTimeElement.onclick = hideErrorMessage;

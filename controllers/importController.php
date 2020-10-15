@@ -45,6 +45,10 @@ class importController extends mainController{
           $test = $this->database->insertArrUnitSale($arr);
           $this->database->close();
           if(false != $test){
+            $this->database->connect();
+            $test = $this->database->insertProfit();
+            $test = $this->database->insertUnitProfit();
+            $this->database->close();
             $this->view->redirect('dashboard', 'view');
           }else{
             die('processSaleUnit - import process - insert database fail');
@@ -88,6 +92,10 @@ class importController extends mainController{
           $test = $this->database->insertArrCostSale($arr);
           $this->database->close();
           if(false != $test){
+            $this->database->connect();
+            $test = $this->database->insertProfit();
+            $test = $this->database->insertUnitProfit();
+            $this->database->close();
             $this->view->redirect('dashboard', 'view');
           }else{
             die('processSaleCost - import process - insert database fail');
@@ -130,6 +138,10 @@ class importController extends mainController{
           $test = $this->database->insertArrSale($arr);
           $this->database->close();
           if(false != $test){
+            $this->database->connect();
+            $test = $this->database->insertProfit();
+            $test = $this->database->insertUnitProfit();
+            $this->database->close();
             $this->view->redirect('dashboard', 'view');
           }else{
             die('processSale - import process - insert database fail');
@@ -240,6 +252,9 @@ class importController extends mainController{
     //unset($_SESSION['startTime']);
     //unset($_SESSION['endTime']);
     //unset($_SESSION['fileURL']);
+    //delete upload file
+    //unlink($fileURL);
+    //process CSV
     switch ($docType) {
       case 'sale_unit': $this->processSaleUnit($fileURL, $startTime, $endTime); break;
       case 'sale_cost': $this->processSaleCost($fileURL, $startTime, $endTime); break;
