@@ -15,6 +15,32 @@ values('admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c9
 */
 
 /**/
+create table if not exists supplier_material_purchase(
+  supplier_id varchar(255) not null,
+  material_id varchar(255) not null,
+  startTime DATE not null,
+  endTime DATE not null,
+  quantity float not null,
+  amount float not null,
+  unit_price float not null,
+  description text null default 'N/A',
+  edit_flag boolean not null default FALSE,
+  primary key(supplier_id, material_id, startTime, endTime),
+  foreign key(product_id) references product(product_id) on delete restrict on update cascade
+);
+
+/**/
+create table if not exists assemble(
+  product_id varchar(255) not null,
+  material_id varchar(255) not null,
+  value float not null,
+  description text null default 'N/A',
+  edit_flag boolean not null default FALSE,
+  primary key(product_id, material_id),
+  foreign key(product_id) references product(product_id) on delete restrict on update cascade,
+  foreign key(material_id) references material(material_id) on delete restrict on update cascade
+);
+/**/
 create table if not exists product(
   product_id varchar(255) not null primary key,
   description text null default 'N/A',
