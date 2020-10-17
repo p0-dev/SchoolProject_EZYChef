@@ -6,7 +6,9 @@ if(!defined('AccessAllowance')){
 }
 //constants
 define('PROFIT_MODEL', '../models/profit.php');
+define('UNIT_PROFIT_MODEL', '../models/unit_profit.php');
 require_once PROFIT_MODEL;
+require_once UNIT_PROFIT_MODEL;
 
 class dashboardController extends mainController{
 
@@ -17,8 +19,9 @@ class dashboardController extends mainController{
     Output: dashboard.php
   */
   public function view(){
-    //load profit table
+    //load profit table and unit_profit table
     $this->loadProfit();
+    $this->loadUnitProfit();
     //check session
     $username = $_SESSION['USER'];
     $permission = $_SESSION['PERMISSION'];
@@ -45,5 +48,20 @@ class dashboardController extends mainController{
       die('can not run getProfitData - loadProfit - dashboardController');
     }
   }
+
+  /**/
+  private function loadUnitProfit(){
+    $this->database->connect();
+    $arr = $this->database->getUnitProfitData();
+    $this->database->close();
+    if(false != $arr){
+      //set to session
+      $_SESSION['unitProfitTable'] = ($arr);
+    }else{
+      die('can not run getProfitData - loadProfit - dashboardController');
+    }
+  }
+
+  /**/
 
 }

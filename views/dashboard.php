@@ -11,6 +11,7 @@ if(null == $username || null == $permission){
 
 //get session
 $obj = ($_SESSION['profitTable']);
+$obj1 = $_SESSION['unitProfitTable'];
 
 //check direct access through router
 if(!defined('AccessAllowance')){
@@ -66,6 +67,7 @@ if(!defined('AccessAllowance')){
 
         <!--table for profit-->
         <div class="profit_table_wrapper">
+          <h3>Total profit of each product per month</h3>
           <table class="profit_table">
             <tr>
               <th>ID</th>
@@ -87,10 +89,31 @@ if(!defined('AccessAllowance')){
              ?>
           </table>
         </div>
+        <br><br><hr><br><br>
 
         <!--table for unit profit-->
-        <div class="unit_profit">
-
+        <div class="unit_profit_wrapper">
+          <h3>Profit of each product (unit) per month</h3>
+          <table class="unit_profit_table">
+            <tr>
+              <th>ID</th>
+              <th>Timestamp</th>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+            <?php
+              foreach ($obj1 as $key) {
+                ?>
+                <tr>
+                  <td><?php echo $key->getProductId(); ?></td>
+                  <td><?php echo $key->getRecordTime(); ?></td>
+                  <td><?php echo $key->getValue(); ?></td>
+                  <td><?php echo $key->getDescription(); ?></td>
+                </tr>
+                <?php
+              }
+             ?>
+          </table>
         </div>
 
       </div>

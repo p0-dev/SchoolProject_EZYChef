@@ -248,4 +248,42 @@ class databaseConnection{
     return false;
   }
 
+  /**/
+  function getUnitProfitData(){
+    if(null != $this->mysqli){
+      $st = $this->mysqli->prepare('select * from unit_profit');
+      if(false != $st){
+        $st->execute();
+        if(false != $st){
+          $result = $st->get_result();
+          $result_row = $result->num_rows;
+          $st->close();
+          if(0 < $result_row){
+            $arr = array();
+            $index = 0;
+            while($row = $result->fetch_assoc()){
+              $id = $row['product_id'];
+              $record = $row['record_time'];
+              $value = $row['value'];
+              $des = $row['description'];
+              $obj = new unit_profit($id, $record, $value);
+              $obj->setDescription($des);
+              $arr[$index++] = $obj;
+            }
+            return $arr;
+          }else{
+            die('getUnitProfitData - result not found!');
+          }
+        }else{
+          die('getUnitProfitData - executing fail!');
+        }
+      }else{
+        die('getUnitProfitData - prepared statement fail!');
+      }
+    }else{
+      die('getUnitProfitData - null database connection');
+    }
+    return false;
+  }
+
 }

@@ -124,6 +124,20 @@ table.profit_table td{
   border-width: thin;
 }
 
+/*table of profit*/
+table.unit_profit_table{
+  border-collapse: collapse;
+}
+
+table.unit_profit_table tr th{
+  border-style: solid;
+  border-width: thin;
+}
+
+table.unit_profit_table td{
+  border-style: solid;
+  border-width: thin;
+}
 
 /*RESPONSIVE CSS*/
 @media screen and (max-width:600px) {
