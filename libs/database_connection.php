@@ -213,7 +213,7 @@ class databaseConnection{
   /**/
   function getProfitData(){
     if(null != $this->mysqli){
-      $st = $this->mysqli->prepare('select * from profit');
+      $st = $this->mysqli->prepare('select * from profit order by record_time desc');
       if(false != $st){
         $st->execute();
         if(false != $st){
@@ -251,7 +251,7 @@ class databaseConnection{
   /**/
   function getUnitProfitData(){
     if(null != $this->mysqli){
-      $st = $this->mysqli->prepare('select * from unit_profit');
+      $st = $this->mysqli->prepare('select * from unit_profit order by record_time desc');
       if(false != $st){
         $st->execute();
         if(false != $st){
