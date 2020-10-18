@@ -34,7 +34,6 @@ if(!defined('AccessAllowance')){
     <!--header-->
     <div class="header">
       <h1>EZYCHEF</h1><br>
-      <h3>What the fuck this is, it sucks!</h3>
     </div>
 
     <!--navi-->
@@ -98,7 +97,6 @@ if(!defined('AccessAllowance')){
     <hr>
     <div class="footer">
       <h1>Ezychef information:</h1>
-      <h3>This is a fucking company with a fucking CEO!</h3>
     </div>
 
     <script src="/views/scripts/validateInputTime.js"></script>

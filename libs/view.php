@@ -26,6 +26,7 @@
         require_once VIEWS.$page;
       }
     }
+
     /*
     Function name: redirect
     Purposes: redirect to different location of the website through header function
@@ -56,5 +57,7 @@
         echo 'Motherfucker, you redirect a fucking null page! Are you fucking nuts?';
       }
     }
+
+
   }
 ?>
