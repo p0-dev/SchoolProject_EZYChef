@@ -1,4 +1,9 @@
 <?php
+//checking direct access through router
+if(!defined('AccessAllowance')){
+  exit('Something went wrong! Life sucks, hah!');
+}
+
 class errorViewController extends mainController{
 
   /**/

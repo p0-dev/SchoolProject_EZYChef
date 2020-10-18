@@ -13,26 +13,30 @@ require_once UNIT_PROFIT_MODEL;
 class dashboardController extends mainController{
 
   /*
-    Purposes: render dashboard page.
-    Input: none.
-    Process: views library --> require_once dashboard page
-    Output: dashboard.php
+    Output: render dashboard.php
   */
   public function view(){
     //load profit table and unit_profit table
-    $this->loadProfit();
-    $this->loadUnitProfit();
-    //check session
+    $profit = $this->loadProfit();
+    $unit_profit = $this->loadUnitProfit();
+    //set session
+    if(false != $profit){
+      $_SESSION['profitTable'] = serialize($profit);
+    }else{
+
+    }
+    if(false != $unit_profit){
+      $_SESSION['unitProfitTable'] = serialize($unit_profit);
+    }else{
+
+    }
+    //check session for rendering dashboard page
     $username = $_SESSION['USER'];
     $permission = $_SESSION['PERMISSION'];
-    if(isset($_SESSION['profitTable']))
     if(null != $username && null != $permission){
       $this->view->render('dashboard.php');
-    }
-    else{
-      //test
-      exit("dashboardController - check session fail.");
-      //go to error page
+    }else{
+      $this->view->redirectInput('errorView', 'defaultView', 'You have to log in first. You big fat motherfucker!');
     }
   }
 
@@ -42,11 +46,9 @@ class dashboardController extends mainController{
     $arr = $this->database->getProfitData();
     $this->database->close();
     if(false != $arr){
-      //set to session
-      $_SESSION['profitTable'] = ($arr);
-    }else{
-      die('can not run getProfitData - loadProfit - dashboardController');
+      return $arr;
     }
+    return false;
   }
 
   /**/
@@ -55,11 +57,9 @@ class dashboardController extends mainController{
     $arr = $this->database->getUnitProfitData();
     $this->database->close();
     if(false != $arr){
-      //set to session
-      $_SESSION['unitProfitTable'] = ($arr);
-    }else{
-      die('can not run getProfitData - loadProfit - dashboardController');
+      return $arr;
     }
+    return false;
   }
 
   /**/

@@ -21,7 +21,7 @@ class databaseConnection{
   public function connect(){
     $this->mysqli = new mysqli(SERVER, USERNAME, PASSWORD, DATABASE);
     if ($this->mysqli->connect_error) {
-      die("Connection failed: " . $this->mysqli->connect_error);
+      die("Connection failed: can not connect to database.");
       $this->mysqli = null;
     }
   }
@@ -43,31 +43,43 @@ class databaseConnection{
     Output: true --> dashboard page / false --> error page.
   */
   public function userValidation($username, $password){
-    if(null != $this->mysqli){
-      $st = $this->mysqli->prepare('select * from system_administration where username = ? and password = ?');
-      if(false == $st){echo 'PreparedStatement fail!';}
-      $st->bind_param('ss', $user, $pass);
-      if(false == $st){
-        echo 'BindingParam fail!';
+    if(null != $username && null != $password){
+      $length = 0;
+      try{
+        $length = strlen($username);
+      }catch(Exception $e){
+        $length = 0;
       }
-      $user = $username;
-      $pass = $password;
-      $st->execute();
-      if(false == $st){echo 'Executing fail!';}
-      $result = $st->get_result();
-      $st->close();
-      if(1 == $result->num_rows){
-        //setting session
-        $row = $result->fetch_assoc();
-        $_SESSION['USER'] = $row['username'];
-        $_SESSION['PERMISSION'] = $row['permission'];
-        return true;
-      }else{
-        return false;
+      if(0 < $length){
+        try{
+          $length = strlen($password);
+        }catch(Exception $e){
+          $length = 0;
+        }
+        if(0 < $length){
+          if(null != $this->mysqli){
+            $st = $this->mysqli->prepare('select * from system_administration where username = ? and password = ?');
+            if(false != $st){
+              $st->bind_param('ss', $username, $password);
+              if(false != $st){
+                $st->execute();
+                if(false != $st){
+                  $result = $st->get_result();
+                  $st->close();
+                  if(1 == $result->num_rows){
+                    $row = $result->fetch_assoc();
+                    $_SESSION['USER'] = $row['username'];
+                    $_SESSION['PERMISSION'] = $row['permission'];
+                    return true;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-    }else{
-      return false;
     }
+    return false;
   }
 
   /**/
@@ -199,13 +211,13 @@ class databaseConnection{
         if(false != $st){
           return true;
         }else{
-          die('insertUnitProfit - databaseConnection - executing errror!');
+
         }
       }else{
-        die('insertUnitProfit - databaseConnection - can not prepared the statement!');
+
       }
     }else{
-      die('insertUnitProfit - databaseConnection - database connection is null!');
+
     }
     return false;
   }
@@ -232,18 +244,22 @@ class databaseConnection{
               $obj->setDescription($des);
               $arr[$index++] = $obj;
             }
-            return $arr;
+            if(0 < count($arr)){
+              return $arr;
+            }else{
+
+            }
           }else{
-            die('getProfitData - result not found!');
+
           }
         }else{
-          die('getProfitData - executing fail!');
+
         }
       }else{
-        die('getProfitData - prepared statement fail!');
+
       }
     }else{
-      die('getProfitData - null database connection');
+
     }
     return false;
   }
@@ -272,18 +288,20 @@ class databaseConnection{
             }
             return $arr;
           }else{
-            die('getUnitProfitData - result not found!');
+
           }
         }else{
-          die('getUnitProfitData - executing fail!');
+
         }
       }else{
-        die('getUnitProfitData - prepared statement fail!');
+
       }
     }else{
-      die('getUnitProfitData - null database connection');
+
     }
     return false;
   }
+
+  /**/
 
 }

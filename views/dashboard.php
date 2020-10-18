@@ -1,23 +1,24 @@
 <?php
-
 session_start();
-
+//check direct access through router
+if(!defined('AccessAllowance')){
+  exit('Something went wrong! Life sucks, hah!');
+}
 //check session
 $username = $_SESSION['USER'];
 $permission = $_SESSION['PERMISSION'];
 if(null == $username || null == $permission){
   exit('Something went wrong! Life sucks, hah!');
 }
-
 //get session
-$obj = ($_SESSION['profitTable']);
-$obj1 = $_SESSION['unitProfitTable'];
-
-//check direct access through router
-if(!defined('AccessAllowance')){
-  exit('Something went wrong! Life sucks, hah!');
+$profitTable = null;
+$unitProfitTable = null;
+if(isset($_SESSION['profitTable'])){
+  $profitTable = unserialize($_SESSION['profitTable']);
 }
-
+if(isset($_SESSION['unitProfitTable'])){
+  $unitProfitTable = unserialize($_SESSION['unitProfitTable']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +66,7 @@ if(!defined('AccessAllowance')){
       <div class="main">
 
         <!--table for profit-->
-        <div class="profit_table_wrapper">
+        <div class="profit_table_wrapper" style="">
           <h3>Total profit of each product per month</h3>
           <table class="profit_table">
             <tr>
@@ -75,7 +76,7 @@ if(!defined('AccessAllowance')){
               <th>Description</th>
             </tr>
             <?php
-              foreach ($obj as $key) {
+              foreach ($profitTable as $key) {
                 ?>
                 <tr>
                   <td><?php echo $key->getProductId(); ?></td>
@@ -101,7 +102,7 @@ if(!defined('AccessAllowance')){
               <th>Description</th>
             </tr>
             <?php
-              foreach ($obj1 as $key) {
+              foreach ($unitProfitTable as $key) {
                 ?>
                 <tr>
                   <td><?php echo $key->getProductId(); ?></td>

@@ -110,6 +110,10 @@ div.footer{
 }
 
 /*table of profit*/
+div.profit_table_wrapper{
+  max-height: 300px;
+  overflow: auto;
+}
 table.profit_table{
   border-collapse: collapse;
 }
@@ -124,7 +128,11 @@ table.profit_table td{
   border-width: thin;
 }
 
-/*table of profit*/
+/*table of unit profit*/
+div.unit_profit_wrapper{
+  max-height: 300px;
+  overflow: auto;
+}
 table.unit_profit_table{
   border-collapse: collapse;
 }
