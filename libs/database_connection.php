@@ -303,5 +303,49 @@ class databaseConnection{
   }
 
   /**/
+  function getProductList(){
+    if(null != $this->mysqli){
+      $st = $this->mysqli->prepare('SELECT * FROM product');
+      $st->execute();
+      $arr = array();
+      $index = 0;
+      $result = $st->get_result();
+      $result_row = $st->num_rows;
+      $st->close();
+      if(0 < $result_row){
+        while($row = $result->fetch_assoc()){
+          $obj = new product($row[0], $row[1]);
+          $arr[$index++] = $obj;
+        }
+        if(0 < count($arr)){
+          return $arr;
+        }
+      }
+    }
+    return false;
+  }
+
+  /**/
+  function getMaterialList(){
+    if(null != $this->mysqli){
+      $st = $this->mysqli->prepare('SELECT * FROM material');
+      $st->execute();
+      $arr = array();
+      $index = 0;
+      $result = $st->get_result();
+      $result_row = $st->num_rows;
+      $st->close();
+      if(0 < $result_row){
+        while($row = $result->fetch_assoc()){
+          $obj = new material($row[0], $row[1]);
+          $arr[$index++] = $obj;
+        }
+        if(0 < count($arr)){
+          return $arr;
+        }
+      }
+    }
+    return false;
+  }
 
 }

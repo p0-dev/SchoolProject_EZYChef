@@ -13,11 +13,19 @@ if(null == $username || null == $permission){
 //get session
 $profitTable = null;
 $unitProfitTable = null;
+$productList = null;
+$materialList = null;
 if(isset($_SESSION['profitTable'])){
   $profitTable = unserialize($_SESSION['profitTable']);
 }
 if(isset($_SESSION['unitProfitTable'])){
   $unitProfitTable = unserialize($_SESSION['unitProfitTable']);
+}
+if(isset($_SESSION['productList'])){
+  $productList = unserialize($_SESSION['productList']);
+}
+if(isset($_SESSION['materialList'])){
+  $materialList = unserialize($_SESSION['materialList']);
 }
 ?>
 

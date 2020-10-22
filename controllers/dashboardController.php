@@ -7,8 +7,10 @@ if(!defined('AccessAllowance')){
 //constants
 define('PROFIT_MODEL', '../models/profit.php');
 define('UNIT_PROFIT_MODEL', '../models/unit_profit.php');
+define('PRODUCT_MODEL', '../models/product.php');
 require_once PROFIT_MODEL;
 require_once UNIT_PROFIT_MODEL;
+require_once PRODUCT_MODEL;
 
 class dashboardController extends mainController{
 
@@ -27,6 +29,16 @@ class dashboardController extends mainController{
     }
     if(false != $unit_profit){
       $_SESSION['unitProfitTable'] = serialize($unit_profit);
+    }else{
+
+    }
+    if(false != $productList){
+      $_SESSION['productList'] = serialize($productList);
+    }else{
+
+    }
+    if(false != $materialList){
+      $_SESSION['materialList'] = serialize($materialList);
     }else{
 
     }
@@ -60,6 +72,11 @@ class dashboardController extends mainController{
       return $arr;
     }
     return false;
+  }
+
+  /**/
+  private function loadProductList(){
+
   }
 
   /**/
