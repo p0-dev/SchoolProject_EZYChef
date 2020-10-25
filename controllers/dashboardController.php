@@ -4,7 +4,7 @@ session_start();
 if(!defined('AccessAllowance')){
   exit('Something went wrong! Life sucks, hah!');
 }
-//constants
+//constants and models
 define('PROFIT_MODEL', '../models/profit.php');
 define('UNIT_PROFIT_MODEL', '../models/unit_profit.php');
 define('PRODUCT_MODEL', '../models/product.php');
@@ -48,7 +48,7 @@ class dashboardController extends mainController{
     if(null != $username && null != $permission){
       $this->view->render('dashboard.php');
     }else{
-      $this->view->redirectInput('errorView', 'defaultView', 'You have to log in first. You big fat motherfucker!');
+      $this->view->redirectInput('errorView', 'defaultView', 'You have to log in first.');
     }
   }
 
